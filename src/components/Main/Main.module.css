@@ -1,0 +1,135 @@
+.container {
+  background-color: rgb(254, 191, 191);
+}
+
+.inputDate {
+  width: 104px;
+  height: 44px;
+  outline: none;
+  border: none;
+}
+
+.btn,
+.btnAccent {
+  font-size: 12px;
+  font-weight: 700;
+  list-style: 1.17;
+  width: 138px;
+  height: 40px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #fafbfd;
+  border: none;
+}
+
+.btnAccent {
+  color: #ff751d;
+  background-color: #fefefe;
+}
+
+.buttonContainer {
+  display: inline-block;
+}
+
+.contentContainer {
+  box-sizing: border-box;
+  width: 1098px;
+  height: 579px;
+  border-radius: 30px;
+  background-color: #fff;
+  border-top-left-radius: 0;
+  padding: 32px 32px 61px;
+}
+
+.formContainer {
+  box-sizing: border-box;
+  height: 44px;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+.form {
+  height: 100%;
+}
+.inputDescription {
+  width: 290px;
+  height: 40px;
+  border: 2px solid;
+  border-color: #f5f6fb;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  padding: 0 19px 0 19px;
+  outline: none;
+}
+
+.inputDescription::after {
+  background-color: #fff;
+  border: 2px solid;
+  border-color: #f5f6fb;
+}
+
+.inputDescription::placeholder {
+  color: #c7ccdc;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.inputCategory {
+  width: 169px;
+  height: 44px;
+  border: none;
+  padding-left: 19px;
+  padding-right: 19px;
+  border: 2px solid;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #f5f6fb;
+  color: #c7ccdc;
+  font-size: 12px;
+  font-weight: 400;
+}
+.inputCategory:after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.inputCategory:focus {
+  box-shadow: 0;
+  outline: none;
+}
+
+.inputSumm {
+  width: 119px;
+  height: 40px;
+  border: 2px solid;
+  border-color: #f5f6fb;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 0;
+  text-align: center;
+  outline: none;
+}
+.inputSumm::placeholder {
+  color: #c7ccdc;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.tableContainer {
+  display: flex;
+}
+.prods {
+  width: 746px;
+  height: 380px;
+  outline: 1px solid teal;
+}
+
+.sumary {
+  width: 213px;
+  height: 280px;
+  outline: 1px solid teal;
+  margin-left: 75px;
+}
