@@ -1,3 +1,8 @@
+import { ReportSummery } from './ReportSummary/ReportSummary';
 export const App = () => {
-  return <div></div>
+  return (
+    <div>
+      <ReportSummery></ReportSummery>
+    </div>
+  );
 };

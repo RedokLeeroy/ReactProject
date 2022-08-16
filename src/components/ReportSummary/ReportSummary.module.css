@@ -1,0 +1,64 @@
+.section {
+  width: 1034px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  background-color: #fff;
+  border: 1px solid black;
+}
+.summary {
+  display: flex;
+  align-items: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.summaryExp {
+  composes: summary;
+}
+.summaryExp::after {
+  content: '';
+  width: 1px;
+  height: 36px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #e0e5eb;
+}
+
+.summaryInc {
+  composes: summary;
+}
+.sumName {
+  margin-right: 15px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+
+  color: #52555f;
+}
+
+.sum {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+}
+
+.sumRed {
+  composes: sum;
+  color: #e53935;
+}
+
+.sumGreen {
+  composes: sum;
+  color: #407946;
+}
