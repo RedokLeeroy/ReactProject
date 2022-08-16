@@ -1,0 +1,42 @@
+.Line {
+  display: grid;
+  grid-template-columns: 100px 1fr 147px 147px 100px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.66;
+  letter-spacing: 0.04em;
+  text-align: center;
+
+  background-color: #fff;
+  color: #52555F;
+  padding-top: 9px;
+  padding-bottom: 9px;
+
+  border-style: solid;
+  border-color: #F5F6FB;
+  border-width: 2px;
+  border-top: none;
+  border-right: none;
+}
+
+
+.Description {
+  max-width: 183px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.Line li:last-child {
+  padding-right: 40px;
+}
+
+.ExpensesSum{
+  color: #E7192E;
+  font-weight: 700;
+}
+
+.Income{
+  color: #407946;
+  font-weight: 700;
+}

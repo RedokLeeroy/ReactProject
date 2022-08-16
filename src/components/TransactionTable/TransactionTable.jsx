@@ -1,4 +1,4 @@
-import { TransactionItem } from './TransactionItem';
+import { TransactionItem } from './TransactionItem/TransactionItem';
 import s from './TransactionTable.module.css';
 
 const transactionItem = [
@@ -6,73 +6,101 @@ const transactionItem = [
     data: '05.09.2019',
     description: 'bananas',
     category: 'Prodact',
-    sum: '10',
+    sum: 112.5,
+    _id: '507f1f77bcf86cd799439011',
   },
   {
     data: '05.09.2019',
     description: 'bananas',
     category: 'Prodact',
-    sum: '20',
+    sum: 20,
+    _id: '507f1f77bcsf86cd799439011',
   },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Prodact',
-    sum: '30',
-  },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Prodact',
+  //   sum: 30,
+  //   _id: '507f1fa77bcf86cd799439011',
+  // },
 ];
 
-// console.log(transactionItem);
-
 export const TransactionTable = () => {
+  const tablePage = 'expenses';
+  // const tablePage = 'income';
+
+  const hendelDelete = id => console.log(id);
+
   return (
     <ul className={s.Table}>
       <li>
@@ -86,8 +114,14 @@ export const TransactionTable = () => {
       </li>
       <li className={s.Tbody}>
         {transactionItem.map(elem => {
-          // console.log(elem);
-          return <TransactionItem key={elem.sum} data={elem} />;
+          return (
+            <TransactionItem
+              key={elem._id}
+              transactionData={elem}
+              tablePage={tablePage}
+              hendelDelete={hendelDelete}
+            />
+          );
         })}
       </li>
     </ul>

@@ -2,24 +2,19 @@ ul{
   list-style: none;
   padding: 0;
 }
-*{
-  box-sizing: border-box;
-}
 
 .Table {
-  margin: 0 auto;
-
-
   width: 100%;
   max-width: 746px;
   color: #000000;
   overflow: hidden;
+  border-bottom: 2px solid #F5F6FB;
   border-radius: 16px 16px 0 0;
 }
 
 .Thead {
   display: grid;
-  grid-template-columns: 0.7fr 1.5fr 1fr 1fr 0.5fr;
+  grid-template-columns: 100px 1fr 147px 147px 100px;
   background-color: #F5F6FB;
   text-align: center;
 }
@@ -27,11 +22,11 @@ ul{
 .Thead li{
   font-weight: 700;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.66;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  padding-top: 11px;
-  padding-bottom: 11px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .Thead li:nth-child(2){
   text-align: left;
@@ -39,38 +34,24 @@ ul{
 }
 
 .Tbody{
- display: flex;
- flex-direction: column;
- max-height: 200px;
- overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 342px;
+  max-height: 342px;
+  background-image: url('images/TableGrid.png');
+  overflow-y: scroll;  
 }
 
-.Line{
-  display: grid;
-  grid-template-columns: 0.7fr 1.5fr 1fr 1fr 0.5fr;
-
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.04em;
-  text-align: center;
-
-  background-color: #fff;
-  color: #52555F;
-  padding-top: 11px;
-  padding-bottom: 11px;
-
-  border-style: solid;
-  border-color: #F5F6FB;
-  border-width: 2px;
-  border-top: none;
+.Tbody::-webkit-scrollbar {
+  width: 6px;
+  background: #F5F6FB;
 }
 
-
-.Line li:nth-child(2){
-  text-align: left;
+.Tbody::-webkit-scrollbar-thumb {
+  background-color: #ff6b01;
+  border-radius: 2px;
 }
 
-.Line li:last-child{
-  padding-right: 40px;
+.Tbody::-webkit-scrollbar-track {
+  background-color: #F5F6FB;
 }
