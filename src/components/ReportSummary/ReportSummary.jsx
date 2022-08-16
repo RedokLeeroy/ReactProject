@@ -1,4 +1,5 @@
 import s from './ReportSummary.module.css';
+
 export const ReportSummery = () => {
   return (
     <div className={s.section}>
