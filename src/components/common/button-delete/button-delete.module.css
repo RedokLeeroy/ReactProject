@@ -1,0 +1,11 @@
+.calendarIcon {
+    position: absolute;
+    z-index: 2;
+    left: -2px;
+    top: 12px;
+}
+
+.btnDelete {
+    border: none;
+    background-color: transparent;
+}
