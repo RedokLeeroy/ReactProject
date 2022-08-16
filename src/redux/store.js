@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authSlicer } from './auth/auth-slice';
+import { transactionReducer } from './transaction/transaction-slice';
 
 // NEZABUD IMPORT SLICERIV//
 //----------------------------------------------------------------//
@@ -18,14 +19,14 @@ import { authSlicer } from './auth/auth-slice';
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken, refreshToken, sid'],
+  whitelist: ['accessToken', 'refreshToken', 'sid'],
 };
 const persistedReducer = persistReducer(persistConfig, authSlicer);
 
 const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    // items: itemsSlicer,
+    transaction: transactionReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>
