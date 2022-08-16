@@ -24,7 +24,7 @@ const transactionSlice = createSlice({
       state.isLogin = false;
     },
 
-    // TODO НЕЗАБУДЬ ПРО ДЕЛІТ     ЗАРАЗ: ЗРОБИТИ ЮЗЕРІВ, ЗРОБИТИ БАЛАНС?
+    // TODO НЕЗАБУДЬ ПРО ДЕЛІТ ЗРОБИТИ БАЛАНС?
     [transactionIncomePost.fulfilled]: (state, { payload }) => {
       state.incomes = [payload?.transaction, ...state.incomes];
       console.log(payload);
@@ -40,7 +40,7 @@ const transactionSlice = createSlice({
 
     [transactionIncomeGet.fulfilled]: (state, { payload }) => {
       state.isLogin = true;
-      return payload;
+      return payload.data;
     },
 
     [transactionIncomeGet.rejected]: (state, _) => {
@@ -66,7 +66,7 @@ const transactionSlice = createSlice({
 
     [transactionExpenseGet.fulfilled]: (state, { payload }) => {
       state.isLogin = true;
-      return payload;
+      return payload.data;
     },
 
     [transactionExpenseGet.rejected]: (state, _) => {
@@ -79,7 +79,7 @@ const transactionSlice = createSlice({
 
     [incomeCategories.fulfilled]: (state, { payload }) => {
       state.isLogin = true;
-      return payload;
+      return payload.data;
     },
 
     [incomeCategories.rejected]: (state, _) => {
@@ -92,7 +92,7 @@ const transactionSlice = createSlice({
 
     [expenseCategories.fulfilled]: (state, { payload }) => {
       state.isLogin = true;
-      return payload;
+      return payload.data;
     },
 
     [expenseCategories.rejected]: (state, _) => {
@@ -105,7 +105,7 @@ const transactionSlice = createSlice({
 
     [periodData.fulfilled]: (state, { payload }) => {
       state.isLogin = true;
-      return payload;
+      return payload.data;
     },
 
     [periodData.rejected]: (state, _) => {

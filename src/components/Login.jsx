@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { transactionIncomePost } from 'redux/transaction/transaction-operations';
-
+import { transactionIncomeGet } from 'redux/transaction/transaction-operations';
 // ------------------------------------------//
 
 export const Login = () => {
@@ -26,13 +25,8 @@ export const Login = () => {
 
   const handlerSubmit = event => {
     event.preventDefault();
-    const credentials = {
-      description: email,
-      amount: Number(pass),
-      date: date,
-      category: category,
-    };
-    dispatch(transactionIncomePost(credentials));
+
+    dispatch(transactionIncomeGet());
   };
 
   return (
