@@ -1,3 +1,10 @@
+import { Login } from './Login';
+import { Logining } from './Logining';
 export const App = () => {
-  return;
+  return (
+    <div>
+      <Login></Login>
+      <Logining></Logining>
+    </div>
+  );
 };

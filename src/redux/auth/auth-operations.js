@@ -34,7 +34,7 @@ export const logIn = createAsyncThunk('auth/logIn', async credentials => {
 
 export const logOut = createAsyncThunk('auth/logout', async () => {
   try {
-    await axios.post('/auth/logout');
+    await axios.post('auth/logout');
     tokenAuth.unset();
   } catch (error) {
     return error;
@@ -51,11 +51,15 @@ export const getRefresh = createAsyncThunk(
       return rejectWithValue('something went wrong');
     }
     try {
-      const { data } = await axios.post('/auth/refresh', oldSid, {
-        headers: {
-          Authorization: `Bearer ${oldRefresh}`,
-        },
-      });
+      const { data } = await axios.post(
+        '/auth/refresh',
+        { sid: oldSid },
+        {
+          headers: {
+            Authorization: `Bearer ${oldRefresh}`,
+          },
+        }
+      );
       return data;
     } catch (error) {
       return error;
