@@ -1,0 +1,45 @@
+/* SLIDER */
+
+.baseContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sliderContainer {
+  position: absolute;
+  width: 136px;
+  height: 39px;
+  left: 1021px;
+  top: 98px;
+}
+
+.textSlider {
+  margin: 0 0 2px 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: rgba(82, 85, 95, 0.7);
+}
+
+.nameContainer {
+  margin: 5px 0 0 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  height: 0px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #000000;
+}
