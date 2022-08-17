@@ -1,7 +1,31 @@
-.backgroundHome{
-    width: 100vw;
+.backgroundHome {
+  /* width: 100vw; */
+  position: absolute;
 }
-.rectangle{
-    width: inherit;
-    background-image: url(../../images/cabagge/rectangle.png);
+.rectangle {
+  /* width: inherit; */
+  height: 526px;
+  background-image: url(../../images/cabagge/rectangle.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 0;
+}
+.cabbage {
+  position: relative;
+  left: 10px;
+  top: -554px;
+  background-image: url(../../images/cabagge/kapusta_main.png);
+}
+.title {
+  position: absolute;
+  top: 308px;
+  left: 230px;
+  background-image: url(../../images/cabagge/title.png);
+}
+.two-cabbage {
+  position: absolute;
+  bottom: 0;
+  left: 230px;
+  background-image: url(../../images/cabagge/kapusta_small.png);
 }

@@ -5,7 +5,8 @@ export const BackgroundHome = () => {
       <div className="rectangle"></div>
       <div className="cabbage"></div>
       <div className="title"></div>
-      <div className="two-abbage"></div>
+      <div className="two-cabbage"></div>
+      <div>modal</div>
     </div>
   );
 };
