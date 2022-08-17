@@ -10,15 +10,15 @@ export const TransactionItem = ({
 
   return (
     <ul className={s.Line} id={_id}>
-      <li>{data}</li>
+      <li className={s.Date}>{data}</li>
       <li className={s.Description}>{description}</li>
-      <li>{category}</li>
+      <li className={s.Category}>{category}</li>
       {tablePage === 'expenses' ? (
         <li className={s.ExpensesSum}>{`- ${sum} грн.`}</li>
       ) : (
-        <li className={s.Income}>{`${sum} грн.`}</li>
+        <li className={s.IncomeSum}>{`${sum} грн.`}</li>
       )}
-      <li>
+      <li className={s.Delete}>
         <button type="button" onClick={() => hendelDelete(_id)}>
           del
         </button>

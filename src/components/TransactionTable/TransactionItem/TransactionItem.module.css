@@ -1,6 +1,10 @@
 .Line {
   display: grid;
-  grid-template-columns: 100px 1fr 147px 147px 100px;
+  /* grid-template-columns: 100px 1fr 147px 147px 100px; */
+  grid-template-columns: 1fr 2.6fr 1.5fr 1.5fr 1fr;
+  grid-template-areas: 'Date Description Category Sum Delete';
+
+  align-items: center;
 
   font-weight: 400;
   font-size: 12px;
@@ -9,34 +13,101 @@
   text-align: center;
 
   background-color: #fff;
-  color: #52555F;
+  color: #52555f;
   padding-top: 9px;
   padding-bottom: 9px;
 
   border-style: solid;
-  border-color: #F5F6FB;
+  border-color: #f5f6fb;
   border-width: 2px;
   border-top: none;
   border-right: none;
+  border-left: none;
 }
 
+.Date {
+  grid-area: Date;
+}
+.Category {
+  grid-area: Category;
+}
 
 .Description {
+  grid-area: Description;
   max-width: 183px;
   text-align: left;
   overflow: hidden;
 }
 
-.Line li:last-child {
-  padding-right: 40px;
-}
-
-.ExpensesSum{
-  color: #E7192E;
+.Sum {
+  grid-area: Sum;
   font-weight: 700;
 }
 
-.Income{
+.Delete {
+  grid-area: Delete;
+  margin-right: 40px;
+}
+
+.ExpensesSum {
+  composes: Sum;
+  color: #e7192e;
+}
+
+.IncomeSum {
+  composes: Sum;
   color: #407946;
-  font-weight: 700;
+}
+
+@media screen and (max-width: 1279px) {
+  .Line {
+    grid-template-columns: 1fr 1.9fr 1fr 1fr 0.6fr;
+  }
+
+  .Date {
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .Delete {
+    margin-right: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Line {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 0.5fr 1fr 0.7fr 0.5fr;
+    grid-template-rows: 1.3fr 0.7fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      'Description Description Sum Delete'
+      'Date Category Sum Delete';
+    justify-items: start;
+  }
+  .Description {
+    width: 100%;
+    font-weight: 700;
+  }
+
+  .Date {
+    margin-left: 0;
+  }
+
+  .Category {
+    text-align: left;
+  }
+
+  .Date,
+  .Category {
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 9px;
+  }
+
+  .Delete {
+    margin-right: 0;
+    margin-left: auto;
+  }
 }
