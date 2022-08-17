@@ -7,14 +7,15 @@ const Navigation = () => {
   const isLogin = useSelector(state => state.auth.isLogin);
 
   return (
-    <div className={styles.headerContainer}>
-      <div className={styles.logo}>
+    <header className={styles.header}>
+      <div className={styles.headerContainer}>
         <svg className={styles.logoIcon} width={90} height={31}>
           <use href={`${Sprite}#icon-logo`}></use>
         </svg>
         {isLogin && <UserMenu />}
+        {/* <UserMenu /> */}
       </div>
-    </div>
+    </header>
   );
 };
 export default Navigation;
