@@ -13,25 +13,30 @@ export const Main = () => {
   const [sum, setSum] = useState('');
   const [date, setDate] = useState(Date.now());
   const [list, setList] = useState(false);
-  const products = useSelector(state => state.expenses);
+  const [products, setProducts] = useState([]);
+  // const products = useSelector(state => state.expenses);
+  const isLogin = useSelector(state => state.auth.isLogin);
   const dispatch = useDispatch();
 
+  const prods = () => {
+    return new Promise(resolve => {
+      resolve(dispatch(expenseCategories()));
+    });
+  };
+
   useEffect(() => {
-    dispatch(expenseCategories());
-  }, [dispatch]);
-  // const products = [
-  //   'Продукты',
-  //   'Алкоголь',
-  //   'Развлечения',
-  //   'Здоровье',
-  //   'Транспорт',
-  //   'Всё для дома',
-  //   'Техника',
-  //   'Коммуналка и связь',
-  //   'Спорт и хобби',
-  //   'Образование',
-  //   'Прочее',
-  // ];
+    if (isLogin) {
+      prods()
+        .then(resp => resp.payload)
+        .then(setProducts);
+    }
+  }, [dispatch, isLogin]);
+
+  // useEffect(() => {
+  //   if (isLogin) {
+  //     dispatch(expenseCategories());
+  //   }
+  // }, [dispatch, isLogin]);
 
   const handleChangeForm = evt => {
     const { value, name } = evt.target;
