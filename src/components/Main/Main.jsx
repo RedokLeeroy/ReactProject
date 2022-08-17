@@ -3,6 +3,9 @@ import { SummaryTable } from 'components/SummaryTable/SummaryTable';
 import { TransactionTable } from 'components/TransactionTable/TransactionTable';
 import { useState } from 'react';
 import s from './Main.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { expenseCategories } from 'redux/transaction/transaction-operations';
 
 export const Main = () => {
   const [description, setDescription] = useState('');
@@ -10,20 +13,25 @@ export const Main = () => {
   const [sum, setSum] = useState('');
   const [date, setDate] = useState(Date.now());
   const [list, setList] = useState(false);
+  const products = useSelector(state => state.expenses);
+  const dispatch = useDispatch();
 
-  const products = [
-    'Продукты',
-    'Алкоголь',
-    'Развлечения',
-    'Здоровье',
-    'Транспорт',
-    'Всё для дома',
-    'Техника',
-    'Коммуналка и связь',
-    'Спорт и хобби',
-    'Образование',
-    'Прочее',
-  ];
+  useEffect(() => {
+    dispatch(expenseCategories());
+  }, [dispatch]);
+  // const products = [
+  //   'Продукты',
+  //   'Алкоголь',
+  //   'Развлечения',
+  //   'Здоровье',
+  //   'Транспорт',
+  //   'Всё для дома',
+  //   'Техника',
+  //   'Коммуналка и связь',
+  //   'Спорт и хобби',
+  //   'Образование',
+  //   'Прочее',
+  // ];
 
   const handleChangeForm = evt => {
     const { value, name } = evt.target;

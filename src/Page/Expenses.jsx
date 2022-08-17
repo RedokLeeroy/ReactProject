@@ -1,11 +1,7 @@
 import { Main } from 'components/Main/Main';
 
 const Expenses = () => {
-  return (
-    <>
-      <Main />
-    </>
-  );
+  return <></>;
 };
 
 export default Expenses;

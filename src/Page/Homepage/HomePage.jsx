@@ -3,6 +3,7 @@ import AuthForm from 'components/AuthForm/AuthForm';
 import Animation from 'components/animation/animation';
 import CabbageAnimation from 'components/animation/cabbageanimation';
 import styles from '../Homepage/HomePage.module.css';
+import { Main } from 'components/Main/Main';
 const HomePage = () => {
   return (
     <>
@@ -25,6 +26,7 @@ const HomePage = () => {
           <AuthForm />
         </div>
       </div>
+      <Main />
     </>
   );
 };
