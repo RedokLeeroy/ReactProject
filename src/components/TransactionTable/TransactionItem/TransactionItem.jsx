@@ -19,7 +19,11 @@ export const TransactionItem = ({
         <li className={s.IncomeSum}>{`${sum} грн.`}</li>
       )}
       <li className={s.Delete}>
-        <button type="button" onClick={() => hendelDelete(_id)}>
+        <button
+          type="button"
+          onClick={() => hendelDelete(_id)}
+          className={s.DelBTN}
+        >
           del
         </button>
       </li>
