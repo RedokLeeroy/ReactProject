@@ -1,0 +1,23 @@
+.backgroundHome {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.rectangle {
+  width: 100vw;
+  height: 583px;
+  background-color: #F5F6FB;
+  position: absolute;
+  border-bottom-left-radius: 200px;
+  top: 0;
+}
+.cabbage {
+  width: 1280px;
+  height: 232px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../../images/cabagge/kapusta_main.png);
+}
