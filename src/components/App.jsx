@@ -16,6 +16,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(getRefresh());
   }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
