@@ -1,0 +1,28 @@
+/* BUTTON_BACK */
+
+.btnBack {
+  position: absolute;
+  width: 100px;
+  height: 24px;
+  left: 123px;
+  top: 106px;
+  background: #f2f5fc;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  letter-spacing: 0.04em;
+
+  color: rgba(82, 85, 95, 0.7);
+  text-decoration: none;
+}
