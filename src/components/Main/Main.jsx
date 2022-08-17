@@ -8,6 +8,8 @@ export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [sum, setSum] = useState('');
+  const [date, setDate] = useState(Date.now());
+  const [list, setList] = useState(false);
 
   const products = [
     'Продукты',
@@ -35,6 +37,9 @@ export const Main = () => {
       case 'sum':
         setSum(value);
         break;
+      // case 'date':
+      //   setDate(Date.now());
+      //   break;
       default:
         return;
     }
@@ -48,7 +53,11 @@ export const Main = () => {
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
-    console.log('submit:', description, category, sum);
+    console.log('submit:', date, description, category, sum);
+    handleResetForm();
+  };
+  const handleIsListTogle = () => {
+    setList(!list);
   };
 
   return (
@@ -60,8 +69,10 @@ export const Main = () => {
           <form className={s.form} onSubmit={handleSubmitForm}>
             <input
               className={s.inputDate}
-              type="data"
+              type="text"
               placeholder="Wait for date"
+              // value={date}
+              onChange={handleChangeForm}
             />
             <input
               className={s.inputDescription}
@@ -72,21 +83,34 @@ export const Main = () => {
               onChange={handleChangeForm}
             />
             <div className={s.inputCategoryContainer}>
-              <select
+              <button
                 className={s.inputCategory}
-                name="category"
-                defaultValue={category}
-                onChange={handleChangeForm}
+                onClick={handleIsListTogle}
+                type="button"
               >
-                <option value="" disabled hidden>
-                  Product category
-                </option>
-                {products.map((el, ind) => (
-                  <option value={el} key={ind} className={s.option}>
-                    {el}
-                  </option>
-                ))}
-              </select>
+                {category ? (
+                  <p style={{ color: '#52555F' }}>{category}</p>
+                ) : (
+                  <p style={{ color: '#c7ccdc' }}>Product category</p>
+                )}
+              </button>
+              {list && (
+                <ul className={s.listCategory}>
+                  {products.map((el, ind) => (
+                    <li
+                      value={el}
+                      key={ind}
+                      className={s.itemCategory}
+                      onClick={() => {
+                        setCategory(el);
+                        handleIsListTogle();
+                      }}
+                    >
+                      {el}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             <input
@@ -110,6 +134,7 @@ export const Main = () => {
             />
           </form>
         </div>
+
         <div className={s.tableContainer}>
           <div className={s.prods}>
             <TransactionTable
