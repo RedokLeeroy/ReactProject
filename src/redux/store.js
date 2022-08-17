@@ -11,9 +11,10 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authSlicer } from './auth/auth-slice';
+import { balanceReducer } from './balance/balance-slice';
 import { transactionReducer } from './transaction/transaction-slice';
+import { userReducer } from './user/user-slice';
 
-// NEZABUD IMPORT SLICERIV//
 //----------------------------------------------------------------//
 
 const persistConfig = {
@@ -27,6 +28,8 @@ const store = configureStore({
   reducer: {
     auth: persistedReducer,
     transaction: transactionReducer,
+    user: userReducer,
+    balance: balanceReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>
