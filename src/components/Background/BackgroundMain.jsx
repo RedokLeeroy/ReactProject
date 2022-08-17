@@ -1,8 +1,9 @@
-export const BackgroundHome = () => {
+import css from './BackgroundMain.module.css';
+export const BackgroundMain = () => {
   return (
-        <div className="div">
-            {/* <img className="rectangle" alt="rectangle" src="./img/rectangle.png" width="1280" height="526"/>
-            <img className="cabbage-second" alt="a lot of cabagge" src="./img/kapusta_second.png"/> */}
-        </div>
+    <div className={css.BackgroundMain}>
+      <div className={css.rectangle}></div>
+      <div className={css.cabbage}></div>
+    </div>
   );
 };

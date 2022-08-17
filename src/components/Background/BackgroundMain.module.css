@@ -1,0 +1,21 @@
+.rectangle {
+  /* ширина 100vw??
+     висота 100vh?? */
+  width: 1280px;
+  height: 583px;
+  background-image: url(../../images/cabagge/rectangle.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+}
+.cabbage {
+  width: 1280px;
+  height: 232px;
+  position: relative;
+  left: 10px;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../../images/cabagge/kapusta_main.png);
+}
