@@ -3,6 +3,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
 
+const tokenAuth = {
+  set(accessToken) {
+    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+  },
+
+  unset() {
+    axios.defaults.headers.common.Authorization = ``;
+  },
+};
+
 export const transactionIncomePost = createAsyncThunk(
   'transaction/incomePost',
   async incomeObj => {
@@ -44,6 +54,7 @@ export const transactionExpenseGet = createAsyncThunk(
   async () => {
     try {
       const { data } = await axios.get('transaction/expense');
+      tokenAuth.set(data.accessToken);
       return data;
     } catch (error) {
       return error;
