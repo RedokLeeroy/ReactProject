@@ -1,0 +1,7 @@
+.backgroundHome{
+    width: 100vw;
+}
+.rectangle{
+    width: inherit;
+    background-image: url(../../images/cabagge/rectangle.png);
+}
