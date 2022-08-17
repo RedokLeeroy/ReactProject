@@ -1,0 +1,51 @@
+.userAvatar {
+  display: inline-block;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.userMenu {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  padding: 10px;
+}
+
+.userName {
+  margin-left: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #52555f;
+  border-right: 1px solid #e0e5eb;
+  padding-right: 20px;
+  /* height: 36px; */
+}
+
+.userButton {
+  text-align: center;
+  text-transform: uppercase;
+  color: #52555f;
+  background-color: #fff;
+  border: none;
+  font-size: 12px;
+  align-items: center;
+  line-height: 1.16;
+  display: inline-block;
+  text-decoration-line: underline;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/* .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+} */
+
+.userImg {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}

@@ -1,1 +1,10 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
 
+.logoIcon {
+  margin-top: 12px;
+  margin-bottom: 13px;
+}
