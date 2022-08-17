@@ -1,19 +1,21 @@
+.backgroundHome {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
 .rectangle {
-  /* ширина 100vw??
-     висота 100vh?? */
-  width: 1280px;
+  width: 100vw;
   height: 583px;
-  background-image: url(../../images/cabagge/rectangle.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-color: #F5F6FB;
   position: absolute;
+  border-bottom-left-radius: 200px;
   top: 0;
 }
 .cabbage {
   width: 1280px;
   height: 232px;
-  position: relative;
-  left: 10px;
+  position: absolute;
+  right: 0;
   top: 0;
   background-repeat: no-repeat;
   background-size: contain;
