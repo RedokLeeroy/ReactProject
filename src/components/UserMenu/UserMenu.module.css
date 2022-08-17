@@ -8,7 +8,6 @@
   display: flex;
   margin-left: auto;
   align-items: center;
-  /* padding: 10px; */
   margin-right: 21px;
 }
 
@@ -22,8 +21,7 @@
 .userButton {
   text-align: center;
   color: #52555f;
-  /* background-color: transparent; */
-  background-color: red;
+  background-color: transparent;
   border: none;
   font-size: 12px;
   align-items: center;
@@ -33,6 +31,8 @@
   transition: all 0.3s;
   cursor: pointer;
   min-width: 44px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .userButton:hover,
@@ -49,7 +49,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  /* background-color: red; */
   background-color: #f5f6fa;
   width: 32px;
   height: 32px;

@@ -3,20 +3,8 @@ import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/auth-operations';
 // import { Link } from 'react-router-dom';
 import styles from './UserMenu.module.css';
-/////////////////////////////////////////////////////////
-// import { FirstLetterAvatar } from 'first-letter-avatar';
 
 const UserMenu = () => {
-  //////////////////////////////////////////////
-  //   const avatar = new FirstLetterAvatar({
-  //     avatarsSelector: '.avatar',
-  //     namesSelector: '.userName',
-  //     backgroundColor: '#171923',
-  //     letterColor: '#fff',
-  //     isCircle: true,
-  //   }).renderAvatar();
-  //////////////////////////////////////////////
-
   const dispatch = useDispatch();
   // const userName = useSelector(state => state.auth?.user?.email);
   const userName = 'User Name';
