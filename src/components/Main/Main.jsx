@@ -1,4 +1,6 @@
 import Button from 'components/common/button/button';
+import { SummaryTable } from 'components/SummaryTable/SummaryTable';
+import { TransactionTable } from 'components/TransactionTable/TransactionTable';
 import { useState } from 'react';
 import s from './Main.module.css';
 
@@ -109,8 +111,15 @@ export const Main = () => {
           </form>
         </div>
         <div className={s.tableContainer}>
-          <div className={s.prods}></div>
-          <div className={s.sumary}></div>
+          <div className={s.prods}>
+            <TransactionTable
+            // transactionData={transactionItem}
+            // tablePage={'expenses'}
+            />
+          </div>
+          <div className={s.sumary}>
+            <SummaryTable />
+          </div>
         </div>
       </div>
     </div>

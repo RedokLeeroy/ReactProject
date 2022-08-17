@@ -136,12 +136,12 @@
 .prods {
   width: 746px;
   height: 380px;
-  outline: 1px solid teal;
+  /* outline: 1px solid teal; */
 }
 
 .sumary {
   width: 213px;
   height: 280px;
-  outline: 1px solid teal;
+  /* outline: 1px solid teal; */
   margin-left: 75px;
 }
