@@ -69,22 +69,23 @@ export const Main = () => {
               value={description}
               onChange={handleChangeForm}
             />
-
-            <select
-              className={s.inputCategory}
-              name="category"
-              defaultValue={category}
-              onChange={handleChangeForm}
-            >
-              <option value="" disabled hidden>
-                Product category
-              </option>
-              {products.map((el, ind) => (
-                <option value={el} key={ind} className={s.option}>
-                  {el}
+            <div className={s.inputCategoryContainer}>
+              <select
+                className={s.inputCategory}
+                name="category"
+                defaultValue={category}
+                onChange={handleChangeForm}
+              >
+                <option value="" disabled hidden>
+                  Product category
                 </option>
-              ))}
-            </select>
+                {products.map((el, ind) => (
+                  <option value={el} key={ind} className={s.option}>
+                    {el}
+                  </option>
+                ))}
+              </select>
+            </div>
 
             <input
               className={s.inputSumm}
