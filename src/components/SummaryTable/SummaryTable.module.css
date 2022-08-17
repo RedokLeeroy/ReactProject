@@ -1,9 +1,10 @@
-.Table{
+.Table {
   display: flex;
   flex-direction: column;
-  width: 213px;
+  width: 100%;
+  max-width: 213px;
   padding: 0;
-  background: #F5F6FB;
+  background: #f5f6fb;
   border-radius: 16px 16px 16px 0;
   list-style: none;
 
@@ -13,7 +14,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.Title{
+.Title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,13 +24,24 @@
 
   font-weight: 700;
 }
-.Item{
+.Item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 38px;
   padding: 0 12px;
- 
-  color: #52555F;
+
+  color: #52555f;
   border-top: 2px solid #fff;
+}
+
+@media screen and (max-width: 1279px) {
+  .Table {
+    max-width: 230px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .Table {
+    display: none;
+  }
 }

@@ -1,3 +1,4 @@
+// import { useParams } from 'react-router-dom';
 import { TransactionItem } from './TransactionItem/TransactionItem';
 import s from './TransactionTable.module.css';
 
@@ -99,17 +100,20 @@ export const TransactionTable = () => {
   const tablePage = 'expenses';
   // const tablePage = 'income';
 
+  // const income = useParams();
+  // console.log(income);
+
   const hendelDelete = id => console.log(id);
 
   return (
     <ul className={s.Table}>
       <li>
         <ul className={s.Thead}>
-          <li>Date</li>
-          <li>Description</li>
-          <li>category</li>
-          <li>Sum</li>
-          <li></li>
+          <li className={s.Date}>Date</li>
+          <li className={s.Description}>Description</li>
+          <li className={s.Category}>Category</li>
+          <li className={s.Sum}>Sum</li>
+          <li className={s.Delete}></li>
         </ul>
       </li>
       <li className={s.Tbody}>
