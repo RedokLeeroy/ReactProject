@@ -1,12 +1,12 @@
-import BalanceContainer from '../components/BalanceContainer/BalanceContainer';
+import { BalanceLap } from 'components/BalanceLap/BalanceLap';
 import { ReportSummery } from 'components/ReportSummary/ReportSummary';
 import { ReporCategory } from 'components/ReportCategory/ReportCategory';
 const Report = () => {
   return (
     <>
-      <BalanceContainer />
-      {/* <ReportSummery />
-      <ReporCategory /> */}
+      <BalanceLap />
+      <ReportSummery />
+      <ReporCategory />
     </>
   );
 };
