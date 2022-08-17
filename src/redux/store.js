@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { authSlicer } from './auth/auth-slice';
+import { authReducer } from './auth/auth-slice';
 import { balanceReducer } from './balance/balance-slice';
 import { transactionReducer } from './transaction/transaction-slice';
 import { userReducer } from './user/user-slice';
@@ -22,7 +22,7 @@ const persistConfig = {
   storage,
   whitelist: ['accessToken', 'refreshToken', 'sid'],
 };
-const persistedReducer = persistReducer(persistConfig, authSlicer);
+const persistedReducer = persistReducer(persistConfig, authReducer);
 
 const store = configureStore({
   reducer: {

@@ -49,9 +49,9 @@ const authSlice = createSlice({
       state.isLogin = false;
     },
     [getRefresh.fulfilled]: (state, { payload }) => {
-      state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
-      state.sid = payload.sid;
+      state.accessToken = payload.newAccessToken;
+      state.refreshToken = payload.newRefreshToken;
+      state.sid = payload.newSid;
       state.isLogin = true;
     },
     [getRefresh.rejected]: (state, { payload }) => {
@@ -60,4 +60,4 @@ const authSlice = createSlice({
   },
 });
 
-export const authSlicer = authSlice.reducer;
+export const authReducer = authSlice.reducer;
