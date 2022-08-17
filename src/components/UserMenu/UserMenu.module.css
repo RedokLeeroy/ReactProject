@@ -8,7 +8,8 @@
   display: flex;
   margin-left: auto;
   align-items: center;
-  padding: 10px;
+  /* padding: 10px; */
+  margin-right: 21px;
 }
 
 .userName {
@@ -16,16 +17,13 @@
   font-size: 12px;
   line-height: 1.7;
   color: #52555f;
-  border-right: 1px solid #e0e5eb;
-  padding-right: 20px;
-  /* height: 36px; */
 }
 
 .userButton {
   text-align: center;
-  text-transform: uppercase;
   color: #52555f;
-  background-color: #fff;
+  /* background-color: transparent; */
+  background-color: red;
   border: none;
   font-size: 12px;
   align-items: center;
@@ -34,18 +32,38 @@
   text-decoration-line: underline;
   transition: all 0.3s;
   cursor: pointer;
-  margin-left: 20px;
+  min-width: 44px;
 }
 
-/* .avatar {
+.userButton:hover,
+.userButton:focus {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: #ff751d;
+  color: #fff;
+  transition: all 0.2s ease-out;
+}
+
+.avatarName {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-} */
+  /* background-color: red; */
+  background-color: #f5f6fa;
+  width: 32px;
+  height: 32px;
+}
 
 .userImg {
   display: flex;
   justify-content: center;
   align-items: baseline;
+}
+
+.userLine {
+  border-right: 1px solid #e0e5eb;
+  padding-right: 20px;
+  height: 36px;
+  margin-right: 20px;
 }
