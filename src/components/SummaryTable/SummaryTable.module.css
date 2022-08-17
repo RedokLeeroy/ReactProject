@@ -1,0 +1,35 @@
+.Table{
+  display: flex;
+  flex-direction: column;
+  width: 213px;
+  padding: 0;
+  background: #F5F6FB;
+  border-radius: 16px 16px 16px 0;
+  list-style: none;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.66;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.Title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  width: 100%;
+  border-bottom: 2px solid #fff;
+
+  font-weight: 700;
+}
+.Item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+  padding: 0 12px;
+ 
+  color: #52555F;
+  border-top: 2px solid #fff;
+}

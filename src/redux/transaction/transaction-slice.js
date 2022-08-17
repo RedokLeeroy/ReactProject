@@ -4,7 +4,7 @@ import {
   transactionIncomeGet,
   transactionExpensePost,
   transactionExpenseGet,
-  //   transactionDelete,
+  transactionDelete,
   incomeCategories,
   expenseCategories,
   periodData,
@@ -24,7 +24,6 @@ const transactionSlice = createSlice({
       state.isLogin = false;
     },
 
-    // TODO НЕЗАБУДЬ ПРО ДЕЛІТ ЗРОБИТИ БАЛАНС?
     [transactionIncomePost.fulfilled]: (state, { payload }) => {
       state.incomes = [payload?.transaction, ...state.incomes];
       console.log(payload);
@@ -112,18 +111,19 @@ const transactionSlice = createSlice({
       state.isLogin = false;
     },
 
-    // [transactionDelete.pending]: (state, _) => {
-    //   state.isLogin = false;
-    // },
+    [transactionDelete.pending]: (state, _) => {
+      state.isLogin = false;
+    },
 
-    // [transactionDelete.fulfilled]: (state, { payload }) => {
-    //   state.isLogin = true;
-    //   return payload.data;
-    // },
+    [transactionDelete.fulfilled]: (state, { payload, meta }) => {
+      state.isLogin = true;
+      state.incomes = state.incomes.filter(el => meta.arg !== el._id);
+      state.expenses = state.expenses.filter(el => meta.arg !== el._id);
+    },
 
-    // [transactionDelete.rejected]: (state, _) => {
-    //   state.isLogin = false;
-    // },
+    [transactionDelete.rejected]: (state, _) => {
+      state.isLogin = false;
+    },
   },
 });
 
