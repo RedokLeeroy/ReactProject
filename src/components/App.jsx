@@ -1,10 +1,10 @@
-import { ReportSummery } from './ReportSummary/ReportSummary';
-import { ReporCategory } from './ReportCategory/ReportCategory';
+import { Login } from './Login';
+import { Logining } from './Logining';
 export const App = () => {
   return (
     <div>
-      <ReportSummery></ReportSummery>
-      <ReporCategory></ReporCategory>
+      <Login></Login>
+      <Logining></Logining>
     </div>
   );
 };
