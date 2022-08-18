@@ -49,7 +49,7 @@ const expenseSlice = createSlice({
 
     [expenseCategories.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.categories = payload.data;
+      state.categories = payload;
     },
 
     [expenseCategories.rejected]: (state, _) => {
