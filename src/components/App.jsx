@@ -9,8 +9,8 @@ import HomePage from '../Page/Homepage/HomePage';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRefresh } from 'redux/auth/auth-operations';
-import { PublicRoute } from './PublicRoute/PublicRoute';
-import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+// import { PublicRoute } from './PublicRoute/PublicRoute';
+// import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,48 +21,13 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route
-          path="/"
-          element={
-            <PublicRoute exact path="/">
-              <HomePage />
-            </PublicRoute>
-          }
-        />
+        <Route path="/" element={<HomePage />} />
 
-        <Route
-          path=""
-          element={
-            <PrivateRoute>
-              <Transaction />
-            </PrivateRoute>
-          }
-        >
-          <Route
-            path="expenses"
-            element={
-              <PrivateRoute>
-                <Expenses />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="income"
-            element={
-              <PrivateRoute>
-                <Income />
-              </PrivateRoute>
-            }
-          />
+        <Route path="" element={<Transaction />}>
+          <Route path="expenses" element={<Expenses />} />
+          <Route path="income" element={<Income />} />
         </Route>
-        <Route
-          path="report"
-          element={
-            // <PrivateRoute>
-            <Report />
-            /* </PrivateRoute> */
-          }
-        />
+        <Route path="report" element={<Report />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Route>

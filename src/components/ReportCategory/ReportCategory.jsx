@@ -19,7 +19,7 @@ export const ReporCategory = () => {
     setCurrentBtn(prev => !prev);
   };
 
-  // console.log(getIncList);
+  console.log(getExpList);
   return (
     <div className={s.section}>
       <div className={s.btn}>

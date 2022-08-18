@@ -9,6 +9,7 @@ export const ReportCategoryBtn = ({ data }) => {
     }
     return str;
   }, '');
+  console.log(data);
   return (
     <li className={s.categryItem}>
       <p className={s.categorySum}>{data[1].total}</p>
