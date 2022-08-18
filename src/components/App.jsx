@@ -58,9 +58,9 @@ export const App = () => {
         <Route
           path="report"
           element={
-            <PrivateRoute>
-              <Report />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <Report />
+            /* </PrivateRoute> */
           }
         />
 

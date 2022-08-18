@@ -11,7 +11,7 @@
 .back {
   width: 100px;
 }
-.back button {
+.backLink {
   display: flex;
   align-items: center;
   padding: 0;
