@@ -7,8 +7,16 @@ import Expenses from '../Page/Expenses';
 import Income from '../Page/Income';
 import Report from '../Page/Report';
 import HomePage from '../Page/Homepage/HomePage';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getRefresh } from 'redux/auth/auth-operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRefresh());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

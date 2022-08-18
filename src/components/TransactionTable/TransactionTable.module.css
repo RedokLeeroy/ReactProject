@@ -1,4 +1,4 @@
-ul{
+ul {
   list-style: none;
   padding: 0;
 }
@@ -8,18 +8,19 @@ ul{
   max-width: 746px;
   color: #000000;
   overflow: hidden;
-  border-bottom: 2px solid #F5F6FB;
+  border-bottom: 2px solid #f5f6fb;
   border-radius: 16px 16px 0 0;
 }
 
 .Thead {
   display: grid;
-  grid-template-columns: 100px 1fr 147px 147px 100px;
-  background-color: #F5F6FB;
+  /* grid-template-columns: 100px 252px 147px 147px 100px; */
+  grid-template-columns: 1fr 2.6fr 1.5fr 1.5fr 1fr;
+  background-color: #f5f6fb;
   text-align: center;
 }
 
-.Thead li{
+.Thead li {
   font-weight: 700;
   font-size: 12px;
   line-height: 1.66;
@@ -28,23 +29,23 @@ ul{
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.Thead li:nth-child(2){
+.Description {
   text-align: left;
   padding-left: 5px;
 }
 
-.Tbody{
+.Tbody {
   display: flex;
   flex-direction: column;
   height: 342px;
   max-height: 342px;
   background-image: url('images/TableGrid.png');
-  overflow-y: scroll;  
+  overflow-y: scroll;
 }
 
 .Tbody::-webkit-scrollbar {
   width: 6px;
-  background: #F5F6FB;
+  background: #f5f6fb;
 }
 
 .Tbody::-webkit-scrollbar-thumb {
@@ -53,5 +54,42 @@ ul{
 }
 
 .Tbody::-webkit-scrollbar-track {
-  background-color: #F5F6FB;
+  background-color: #f5f6fb;
+}
+
+@media screen and (max-width: 1279px) {
+  .Table {
+    max-width: 624px;
+  }
+
+  .Thead {
+    /* grid-template-columns: 100px 252px 147px 147px 100px; */
+    grid-template-columns: 1fr 1.9fr 1fr 1fr 0.6fr;
+  }
+
+  .Date {
+    padding-left: 20px;
+    text-align: left;
+  }
+
+  .Description {
+    text-align: left;
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Table {
+    max-width: none;
+    border: none;
+  }
+
+  .Thead {
+    display: none;
+  }
+
+  .Tbody {
+    background-image: none;
+    overflow: auto;
+  }
 }
