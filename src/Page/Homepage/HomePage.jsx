@@ -1,8 +1,9 @@
-import Sprite from '../../images/sprite.svg';
+// import Sprite from '../../images/sprite.svg';
 import AuthForm from 'components/AuthForm/AuthForm';
 import Animation from 'components/animation/animation';
 import CabbageAnimation from 'components/animation/cabbageanimation';
 import styles from '../Homepage/HomePage.module.css';
+// import title from '../../images/cabagge/title.png';
 const HomePage = () => {
   return (
     <>
@@ -16,10 +17,8 @@ const HomePage = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.name}>
-          <svg className={styles.title}>
-            <use href={`${Sprite}#icon-kapusta`}></use>
-          </svg>
-          <p className={styles.subtitle}>SMART FINANCE</p>
+          <div className={styles.title}></div>
+          {/* <p className={styles.subtitle}>SMART FINANCE</p> */}
         </div>
         <div className={styles.authorization}>
           <AuthForm />
