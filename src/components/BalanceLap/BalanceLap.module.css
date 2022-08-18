@@ -1,0 +1,150 @@
+.section {
+  min-width: 270px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border: 1px solid green;
+}
+.back {
+  width: 100px;
+}
+.back button {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(82, 85, 95, 0.7);
+  /* display: none; */
+}
+.back svg {
+  margin-right: 15px;
+  fill: #ff751d;
+}
+.form {
+  display: flex;
+  align-items: center;
+}
+.form label {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  color: rgba(82, 85, 95, 0.7);
+}
+.form input {
+  width: 125px;
+  height: 44px;
+  margin-left: 20px;
+  margin-right: 16px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 16px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #000000;
+}
+.form input::placeholder {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #000000;
+}
+.form input:focus {
+  outline: none;
+  border: 2px solid #ff751d;
+}
+
+.form button {
+  width: 125px;
+  height: 44px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 16px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(82, 85, 95, 0.7);
+}
+.report {
+  width: 160px;
+  display: flex;
+  justify-content: flex-end;
+}
+.reportLink {
+  display: flex;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(82, 85, 95, 0.7);
+}
+.reportLink svg {
+  margin-left: 15px;
+  fill: #52555f;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  width: 160px;
+}
+.btn button {
+  background-color: transparent;
+}
+.btn svg {
+  fill: #ff751d;
+}
+.btnName {
+  min-width: 115px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #000000;
+}
+/* ---- */
+@media screen and (min-width: 768px) {
+  .section {
+    max-width: 1034px;
+  }
+}
