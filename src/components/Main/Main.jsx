@@ -11,6 +11,7 @@ export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [sum, setSum] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [date, setDate] = useState(Date.now());
   const [list, setList] = useState(false);
   const [products, setProducts] = useState([]);
@@ -30,6 +31,7 @@ export const Main = () => {
         .then(resp => resp.payload)
         .then(setProducts);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, isLogin]);
 
   // useEffect(() => {
@@ -134,18 +136,20 @@ export const Main = () => {
               value={sum}
               onChange={handleChangeForm}
             />
+          </form>
+          <div className={s.buttonContainer}>
             <Button
-              className={s.buttonContainer}
+              // className={s.buttonContainer}
               text={'INPUT'}
               type={'submit'}
               onClick={handleSubmitForm}
             />
             <Button
-              className={s.buttonContainer}
+              // className={s.buttonContainer}
               text={'CLEAR'}
               onClick={handleResetForm}
             />
-          </form>
+          </div>
         </div>
 
         <div className={s.tableContainer}>
