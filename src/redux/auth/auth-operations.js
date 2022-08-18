@@ -60,6 +60,7 @@ export const getRefresh = createAsyncThunk(
           },
         }
       );
+      tokenAuth.set(data.newAccessToken);
       return data;
     } catch (error) {
       return error;
