@@ -1,9 +1,13 @@
 import s from './BalanceLap.module.css';
 import svg from '../../svgReport/svg-report.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { getPeriodData } from 'redux/currentPeriod/currentPeriodOperation';
 
 export const BalanceLap = () => {
-  const togle = true;
+  const { pathname: location } = useLocation();
+  const test = getPeriodData();
+  console.log(test);
+
   return (
     <div className={s.section}>
       <div className={s.back}>
@@ -22,7 +26,7 @@ export const BalanceLap = () => {
         <button>confirm</button>
       </form>
       <div>
-        {togle ? (
+        {location === '/report' ? (
           <div className={s.btnTitle}>
             <p>Current period:</p>
             <div className={s.btn}>
