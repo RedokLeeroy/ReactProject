@@ -1,37 +1,43 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { goBackOneMonth, goForwardOneMonth } from 'redux/currentPeriod/currentPeriodSlice';
-import { getMonth, getYear } from 'redux/currentPeriod/currentPeriodSelectors';
+import {
+  goBackOneMonth,
+  goForwardOneMonth,
+} from 'redux/currentPeriod/currentPeriodSlice';
+import {
+  getMonth,
+  getYear,
+  getToken,
+} from 'redux/currentPeriod/currentPeriodSelectors';
 import { getPeriodData } from 'redux/currentPeriod/currentPeriodOperation';
-import { ReactComponent as LeftArrow } from '../../../images/left-arrow.svg'
-import { ReactComponent as RightArrow } from '../../../images/right-arrow.svg'
-import s from './SliderDate.module.css'
+import { ReactComponent as LeftArrow } from '../../../images/left-arrow.svg';
+import { ReactComponent as RightArrow } from '../../../images/right-arrow.svg';
+import s from './SliderDate.module.css';
 
 const btnBack = true;
- const months = {
-    1: 'январь',
-    2: 'февраль',
-    3: 'март',
-    4: 'апрель',
-    5: 'май',
-    6: 'июнь',
-    7: 'июль',
-    8: 'август',
-    9: 'сентябрь',
-    10: 'октябрь',
-    11: 'ноябрь',
-    12: 'декабрь',
-  };
-
+const months = {
+  1: 'январь',
+  2: 'февраль',
+  3: 'март',
+  4: 'апрель',
+  5: 'май',
+  6: 'июнь',
+  7: 'июль',
+  8: 'август',
+  9: 'сентябрь',
+  10: 'октябрь',
+  11: 'ноябрь',
+  12: 'декабрь',
+};
 
 const SliderDate = props => {
-
   const dispatch = useDispatch();
   const month = useSelector(getMonth);
   const year = useSelector(getYear);
+  const token = useSelector(getToken);
 
-    const onClickRight = () => {
+  const onClickRight = () => {
     dispatch(goBackOneMonth());
   };
 
@@ -40,37 +46,33 @@ const SliderDate = props => {
   };
 
   useEffect(() => {
-    
-  dispatch(getPeriodData(`${year}-${month.toString().padStart(2, 0)}`));
+    if (!token) return;
 
-  }, [dispatch, month, year])
-  
+    dispatch(getPeriodData(`${year}-${month.toString().padStart(2, 0)}`));
+  }, [dispatch, month, year, token]);
+
   return (
-          <div className={s.baseContainer}>
-
-          <div 
-        className={btnBack?s.sliderContainerWithBtnBack:s.sliderContainer}>
-          <p className={s.textSlider}>
-              Current period:</p>
+    <div className={s.baseContainer}>
+      <div
+        className={btnBack ? s.sliderContainerWithBtnBack : s.sliderContainer}
+      >
+        <p className={s.textSlider}>Current period:</p>
         <div className={s.baseContainer}>
-          <button
-            onClick={onClickRight}
-            className={s.btn}>
+          <button onClick={onClickRight} className={s.btn}>
             <RightArrow />
           </button>
-          <strong className={s.nameContainer}>{`${months[month]} ${year}`}</strong>
-          <button
-            onClick={onClickLeft}
-            className={s.btn}>
-            <LeftArrow/>
+          <strong
+            className={s.nameContainer}
+          >{`${months[month]} ${year}`}</strong>
+          <button onClick={onClickLeft} className={s.btn}>
+            <LeftArrow />
           </button>
-              
-            </div>
-        </div> 
+        </div>
       </div>
-  )
-}
+    </div>
+  );
+};
 
-SliderDate.propTypes = {}
+SliderDate.propTypes = {};
 
-export default SliderDate
+export default SliderDate;

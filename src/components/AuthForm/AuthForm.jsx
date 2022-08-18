@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { logIn, signIn } from 'redux/auth/auth-operations';
 import styles from './AuthForm.module.css';
 import Sprite from '../../images/sprite.svg';
 
 export default function AuthForm() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emptyInput, setEmptyInput] = useState(false);
@@ -33,6 +35,7 @@ export default function AuthForm() {
   const handleLogin = event => {
     event.preventDefault();
     const credentials = { email, password };
+    navigate('/expenses');
 
     if (checkValidData()) {
       return;
@@ -66,6 +69,7 @@ export default function AuthForm() {
       return;
     }
     dispatch(signIn(credentials));
+    navigate('/expenses');
   };
 
   return (
