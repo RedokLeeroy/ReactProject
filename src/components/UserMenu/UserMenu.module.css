@@ -8,7 +8,6 @@
   display: flex;
   margin-left: auto;
   align-items: center;
-  margin-right: 21px;
 }
 
 .userName {
@@ -65,4 +64,41 @@
   padding-right: 20px;
   height: 36px;
   margin-right: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .logoutIcon {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logoutIcon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .userName {
+    display: none;
+  }
+
+  .userButton {
+    display: none;
+  }
+
+  .logoutIcon {
+    margin-left: 16px;
+    transition: all 0.3s;
+    fill: #cbccd0;
+  }
+
+  .logoutIcon:hover,
+  .logoutIcon:focus {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: #ff751d;
+    fill: #fff;
+    transition: all 0.2s ease-out;
+  }
 }
