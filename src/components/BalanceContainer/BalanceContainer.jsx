@@ -6,16 +6,20 @@ import SliderDate from './SliderDate/SliderDate';
 import s from './BalanceContainer.module.css'
 
 const slider = true;
-
+const btnBack = true;
 
 const BalanceContainer = props => {
   return (
+  <>
+    
     <div className={s.container}>
-      <ButtonBack />
-      <Balance />
+      
+{btnBack && <ButtonBack />}
+        <Balance />
  {slider || <ReportButton />}
-      <SliderDate/>
-    </div>
+        <SliderDate/>
+      </div>
+      </>
   )
 }
 
