@@ -13,17 +13,12 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
-    [signIn.pending]: (state, { payload }) => {
-      state.isLogin = false;
-    },
+    [signIn.pending]: (state, { payload }) => {},
     [signIn.fulfilled]: (state, { payload }) => {
       state.user = payload.user;
-      state.isLogin = true;
     },
 
-    [signIn.rejected]: (state, { payload }) => {
-      state.isLogin = false;
-    },
+    [signIn.rejected]: (state, { payload }) => {},
     [logIn.pending]: (state, { payload }) => {
       state.isLogin = false;
     },
