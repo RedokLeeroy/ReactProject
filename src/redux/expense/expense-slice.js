@@ -15,14 +15,14 @@ const expensesInitialState = {
 
 const expenseSlice = createSlice({
   name: 'expenses',
-  expensesInitialState,
+  initialState: expensesInitialState,
   extraReducers: {
     [expensePost.pending]: (state, _) => {
       state.isLoading = true;
     },
 
     [expensePost.fulfilled]: (state, { payload }) => {
-      state.incomes = [payload?.transaction, ...state.data];
+      state.data = [payload?.transaction, ...state.data];
       state.isLoading = false;
     },
     [expensePost.rejected]: (state, _) => {

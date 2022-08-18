@@ -15,14 +15,14 @@ const incomesInitialState = {
 
 const incomeSlice = createSlice({
   name: 'incomes',
-  incomesInitialState,
+  initialState: incomesInitialState,
   extraReducers: {
     [incomePost.pending]: (state, _) => {
       state.isLoading = true;
     },
 
     [incomePost.fulfilled]: (state, { payload }) => {
-      state.incomes = [payload?.transaction, ...state.data];
+      state.data = [payload?.transaction, ...state.data];
       state.isLoading = false;
     },
     [incomePost.rejected]: (state, _) => {
