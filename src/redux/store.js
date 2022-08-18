@@ -33,9 +33,9 @@ const store = configureStore({
     user: userReducer,
     currentPeriod: currentPeriodReducer,
     balance: balanceReducer,
-    // income: incomeReducer,
-    // expense: expenseReducer,
-    // report: reportReducer,
+    income: incomeReducer,
+    expense: expenseReducer,
+    report: reportReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>

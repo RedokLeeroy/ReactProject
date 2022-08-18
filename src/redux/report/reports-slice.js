@@ -7,7 +7,7 @@ const reportInitialState = {
 
 const reportSlice = createSlice({
   name: 'report',
-  reportInitialState,
+  initialState: reportInitialState,
   extraReducers: {
     [periodData.pending]: (state, _) => {
       state.isLogin = false;

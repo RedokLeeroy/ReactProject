@@ -15,7 +15,7 @@ const incomesInitialState = {
 
 const incomeSlice = createSlice({
   name: 'incomes',
-  incomesInitialState,
+  initialState: incomesInitialState,
   extraReducers: {
     [incomePost.pending]: (state, _) => {
       state.isLoading = true;
