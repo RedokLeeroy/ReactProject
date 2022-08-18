@@ -1,14 +1,12 @@
 .headerContainer {
   display: flex;
   justify-content: space-between;
-  /* align-items: baseline; */
   align-items: center;
 }
 
 .logoIcon {
   margin-top: 12px;
   margin-bottom: 13px;
-  /* margin-left: 16px; */
 }
 
 .header {
@@ -25,7 +23,6 @@
 
 @media screen and (max-width: 767px) {
   .headerContainer {
-    /* max-width: 426px; */
     margin: 0 auto;
     padding: 0 20px;
   }
