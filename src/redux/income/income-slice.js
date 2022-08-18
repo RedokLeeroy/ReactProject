@@ -7,9 +7,9 @@ import {
 } from './income-operations';
 
 const incomesInitialState = {
-  data: null,
-  categories: null,
-  monthStats: null,
+  data: [],
+  categories: [],
+  monthStats: {},
   isLoading: true,
 };
 
