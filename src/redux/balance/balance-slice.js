@@ -9,22 +9,22 @@ const balanceSlice = createSlice({
   initialState,
   extraReducers: {
     [incomePost.fulfilled]: (state, { payload }) => {
-      state = payload.newBalance;
+      return payload.newBalance;
     },
 
     [expensePost.fulfilled]: (state, { payload }) => {
-      state = payload.newBalance;
+      return payload.newBalance;
     },
 
     [userBalancePatch.fulfilled]: (state, { payload }) => {
-      state = payload;
+      return payload;
     },
 
     [incomeDelete.fulfilled]: (state, { payload }) => {
-      state = payload.newBalance;
+      return payload.newBalance;
     },
     [expenseDelete.fulfilled]: (state, { payload }) => {
-      state = payload.newBalance;
+      return payload.newBalance;
     },
   },
 });

@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  expensePost,
-  expenseGet,
   expenseCategories,
   expenseDelete,
+  expenseGet,
+  expensePost,
 } from './expense-operations';
 
 const expensesInitialState = {
   data: [],
   categories: [],
   monthStats: {},
-  isLoading: true,
+  isLoading: false,
 };
 
 const expenseSlice = createSlice({

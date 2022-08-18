@@ -8,6 +8,7 @@ export const expensePost = createAsyncThunk(
   async expenseObj => {
     try {
       const { data } = await axios.post('transaction/expense', expenseObj);
+      console.log('~ data', data);
       return data;
     } catch (error) {
       return error;
