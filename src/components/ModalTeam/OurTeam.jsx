@@ -7,7 +7,7 @@
 //     <div className={styles.content}>
 //       <Link to="/" alt="homepage" className={styles.close} />
 
-//       {teams.map((team, idx) => (
+//       {team.map((team, idx) => (
 //         <figure key={idx} className={styles.team}>
 //           <img src={team.photo} alt="" className={styles.background} />
 //           <img
