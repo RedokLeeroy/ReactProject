@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/auth-slice';
 import { balanceReducer } from './balance/balance-slice';
+import currentPeriodReducer from './currentPeriod/currentPeriodSlice';
 import { transactionReducer } from './transaction/transaction-slice';
 import { userReducer } from './user/user-slice';
 
@@ -29,6 +30,7 @@ const store = configureStore({
     auth: persistedReducer,
     transaction: transactionReducer,
     user: userReducer,
+    currentPeriod: currentPeriodReducer,
     balance: balanceReducer,
   },
   devTools: process.env.NODE_ENV === 'development',

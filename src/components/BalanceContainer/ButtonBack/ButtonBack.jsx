@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactComponent as BackIcon } from '../../../images/arrow-back.svg'
 import s from './ButtonBack.module.css'
+
+
 const ButtonBack = props => {
   return (
     <div>
