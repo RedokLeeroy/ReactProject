@@ -9,7 +9,7 @@ export const ReporCategory = () => {
   const getExpList = useSelector(state => state.currentPeriod.expense.data);
   const getIncList = useSelector(state => state.currentPeriod.incomes.data);
 
-  const get = useSelector(state => state.currentPeriod);
+  // const get = useSelector(state => state.currentPeriod);
   const [currentBtn, setCurrentBtn] = useState(true);
   const expInc = {
     true: 'Expenses',
@@ -19,7 +19,7 @@ export const ReporCategory = () => {
     setCurrentBtn(prev => !prev);
   };
 
-  console.log(getIncList);
+  // console.log(getIncList);
   return (
     <div className={s.section}>
       <div className={s.btn}>

@@ -1,7 +1,6 @@
 import s from './BalanceLap.module.css';
 import svg from '../../svgReport/svg-report.svg';
 import { Link, useLocation } from 'react-router-dom';
-import { getPeriodData } from 'redux/currentPeriod/currentPeriodOperation';
 import SliderDate from '../BalanceContainer/SliderDate/SliderDate';
 export const BalanceLap = () => {
   const { pathname: location } = useLocation();
