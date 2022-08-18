@@ -1,18 +1,24 @@
 import s from './BalanceLap.module.css';
 import svg from '../../svgReport/svg-report.svg';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
+import { getPeriodData } from 'redux/currentPeriod/currentPeriodOperation';
+import SliderDate from '../BalanceContainer/SliderDate/SliderDate';
 export const BalanceLap = () => {
-  const togle = false;
+  const { pathname: location } = useLocation();
+  const test = getPeriodData();
+  console.log(test);
+
   return (
     <div className={s.section}>
       <div className={s.back}>
-        <button>
-          <svg width={24} height={24}>
-            <use href={`${svg}#icon-back`}></use>
-          </svg>
-          Main page
-        </button>
+        {location === '/report' && (
+          <button>
+            <svg width={24} height={24}>
+              <use href={`${svg}#icon-back`}></use>
+            </svg>
+            Main page
+          </button>
+        )}
       </div>
       <form className={s.form}>
         <label>
@@ -22,20 +28,24 @@ export const BalanceLap = () => {
         <button>confirm</button>
       </form>
       <div>
-        {togle ? (
-          <div className={s.btn}>
-            <button>
-              <svg width={10} height={10}>
-                <use href={`${svg}#icon-btn-left`}></use>
-              </svg>
-            </button>
-            <p className={s.btnName}>November 2019</p>
-            <button>
-              <svg width={10} height={10}>
-                <use href={`${svg}#icon-btn-right`}></use>
-              </svg>
-            </button>
-          </div>
+        {location === '/report' ? (
+          // <div className={s.btnTitle}>
+          //   <p>Current period:</p>
+          //   <div className={s.btn}>
+          //     <button>
+          //       <svg width={10} height={10}>
+          //         <use href={`${svg}#icon-btn-left`}></use>
+          //       </svg>
+          //     </button>
+          //     <p className={s.btnName}>November 2019</p>
+          //     <button>
+          //       <svg width={10} height={10}>
+          //         <use href={`${svg}#icon-btn-right`}></use>
+          //       </svg>
+          //     </button>
+          //   </div>
+          // </div>
+          <SliderDate />
         ) : (
           <div className={s.report}>
             <Link to="/report" className={s.reportLink}>
