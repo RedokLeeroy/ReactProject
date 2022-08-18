@@ -23,21 +23,6 @@ export const Main = () => {
   const isLogin = useSelector(state => state.auth.isLogin);
   const dispatch = useDispatch();
 
-  // const prods = () => {
-  //   return new Promise(resolve => {
-  //     resolve(dispatch(expenseCategories()));
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   if (isLogin) {
-  //     prods()
-  //       .then(resp => resp.payload)
-  //       .then(setProducts);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [dispatch, isLogin]);
-
   useEffect(() => {
     if (isLogin) {
       dispatch(expenseCategories());
@@ -82,6 +67,7 @@ export const Main = () => {
     dispatch(expensePost(items));
     handleResetForm();
   };
+
   const handleIsListTogle = () => {
     setList(!list);
   };
