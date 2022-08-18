@@ -23,7 +23,7 @@ import currentPeriodReducer from './currentPeriod/currentPeriodSlice';
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken', 'refreshToken', 'sid', 'user'],
+  whitelist: ['accessToken', 'refreshToken', 'sid', 'user', 'isLogin'],
 };
 const persistedReducer = persistReducer(persistConfig, authReducer);
 
