@@ -2,7 +2,6 @@
   margin: 0 auto;
   background-color: #fff;
   max-width: 420px;
-
   padding: 40px 20px;
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
@@ -11,11 +10,19 @@
 @media screen and (min-width: 400px) {
   .box {
     padding: 40px 60px;
-    margin: 0 auto;
   }
 }
 
 @media screen and (min-width: 768px) {
+  .box {
+    max-width: 426px;
+    width: 426px;
+    padding: 56px 83px;
+    margin: 150px 171px 0 171px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
   .box {
     max-width: 426px;
     width: 426px;

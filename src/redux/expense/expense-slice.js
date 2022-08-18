@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  expensePost,
-  expenseGet,
   expenseCategories,
   expenseDelete,
+  expenseGet,
+  expensePost,
 } from './expense-operations';
 
 const expensesInitialState = {
   data: [],
   categories: [],
   monthStats: {},
-  isLoading: true,
+  isLoading: false,
 };
 
 const expenseSlice = createSlice({
@@ -49,7 +49,7 @@ const expenseSlice = createSlice({
 
     [expenseCategories.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.categories = payload.data;
+      state.categories = payload;
     },
 
     [expenseCategories.rejected]: (state, _) => {
