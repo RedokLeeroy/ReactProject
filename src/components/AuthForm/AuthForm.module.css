@@ -11,6 +11,7 @@
 @media screen and (min-width: 400px) {
   .box {
     padding: 40px 60px;
+    margin: 0 auto;
   }
 }
 
@@ -19,7 +20,7 @@
     max-width: 426px;
     width: 426px;
     padding: 56px 83px;
-    /* margin: 0 90px 0 0; */
+    margin: 0 171px 0 171px;
   }
 }
 
