@@ -4,7 +4,7 @@ export const BackgroundMain = ({children}) => {
     <div className={css.BackgroundMain}>
       <div className={css.rectangle}></div>
       <div className={css.cabbage}></div>
-      {children}
+      <div>{children}</div>
     </div>
   );
 };
