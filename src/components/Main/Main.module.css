@@ -12,6 +12,8 @@
 
 .btn,
 .btnAccent {
+  padding: 18px 50px;
+  margin-bottom: 20px;
   font-size: 12px;
   font-weight: 700;
   list-style: 1.17;
