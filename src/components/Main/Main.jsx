@@ -16,6 +16,7 @@ export const Main = () => {
   const [sum, setSum] = useState('');
   // eslint-disable-next-line no-unused-vars
   const dateNow = new Date();
+  // eslint-disable-next-line no-unused-vars
   const [date, setDate] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
   // const [products, setProducts] = useState([]);
