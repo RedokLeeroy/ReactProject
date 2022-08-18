@@ -5,40 +5,44 @@ import { useState } from 'react';
 import s from './Main.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { expenseCategories } from 'redux/transaction/transaction-operations';
+import {
+  expenseCategories,
+  expensePost,
+} from 'redux/expense/expense-operations';
 
 export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [sum, setSum] = useState('');
   // eslint-disable-next-line no-unused-vars
-  const [date, setDate] = useState(Date.now());
+  const dateNow = new Date();
+  const [date, setDate] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
-  const [products, setProducts] = useState([]);
-  // const products = useSelector(state => state.expenses);
+  // const [products, setProducts] = useState([]);
+  const products = useSelector(state => state.expense.categories);
   const isLogin = useSelector(state => state.auth.isLogin);
   const dispatch = useDispatch();
 
-  const prods = () => {
-    return new Promise(resolve => {
-      resolve(dispatch(expenseCategories()));
-    });
-  };
-
-  useEffect(() => {
-    if (isLogin) {
-      prods()
-        .then(resp => resp.payload)
-        .then(setProducts);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, isLogin]);
+  // const prods = () => {
+  //   return new Promise(resolve => {
+  //     resolve(dispatch(expenseCategories()));
+  //   });
+  // };
 
   // useEffect(() => {
   //   if (isLogin) {
-  //     dispatch(expenseCategories());
+  //     prods()
+  //       .then(resp => resp.payload)
+  //       .then(setProducts);
   //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [dispatch, isLogin]);
+
+  useEffect(() => {
+    if (isLogin) {
+      dispatch(expenseCategories());
+    }
+  }, [dispatch, isLogin]);
 
   const handleChangeForm = evt => {
     const { value, name } = evt.target;
@@ -68,7 +72,14 @@ export const Main = () => {
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
-    console.log('submit:', date, description, category, sum);
+    const items = {
+      description: description,
+      amount: Number(sum),
+      date: date.slice(0, 10),
+      category: category,
+    };
+    console.log('submit:', items);
+    dispatch(expensePost(items));
     handleResetForm();
   };
   const handleIsListTogle = () => {
