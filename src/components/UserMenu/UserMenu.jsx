@@ -24,7 +24,10 @@ const UserMenu = () => {
       </button>
 
       <svg className={styles.logoutIcon} width={16} height={16}>
-        <use href={`${Sprite}#icon-logout`}></use>
+        <use
+          href={`${Sprite}#icon-logout`}
+          onClick={() => dispatch(logOut())}
+        ></use>
       </svg>
     </div>
   );
