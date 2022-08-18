@@ -3,7 +3,7 @@ import {
   transactionIncomePost,
   transactionExpensePost,
   transactionDelete,
-} from '../transaction/transaction-operations';
+} from '../income/income-operations';
 import { userBalancePatch } from './balance-operations';
 const initialState = 0;
 
