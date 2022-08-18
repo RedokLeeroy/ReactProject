@@ -1,12 +1,12 @@
 .backgroundHome {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: relative;
 }
 .rectangle {
   width: 100vw;
   height: 583px;
-  background-color: #F5F6FB;
+  background-color: #f5f6fb;
   position: absolute;
   border-bottom-left-radius: 200px;
   top: 0;
