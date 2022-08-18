@@ -1,1 +1,16 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: baseline; */
+  align-items: center;
+}
 
+.logoIcon {
+  margin-top: 12px;
+  margin-bottom: 13px;
+  margin-left: 16px;
+}
+
+.header {
+  background-color: #fff;
+}
