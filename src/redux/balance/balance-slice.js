@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  transactionIncomePost,
-  transactionExpensePost,
-  transactionDelete,
-} from '../transaction/transaction-operations';
+import { incomePost, incomeDelete } from 'redux/income/income-operations';
+import { expensePost, expenseDelete } from 'redux/expense/expense-operations';
 import { userBalancePatch } from './balance-operations';
 const initialState = 0;
 
@@ -11,20 +8,23 @@ const balanceSlice = createSlice({
   name: 'balance',
   initialState,
   extraReducers: {
-    [transactionIncomePost.fulfilled]: (_, { payload }) => {
-      return payload.newBalance;
+    [incomePost.fulfilled]: (state, { payload }) => {
+      state = payload.newBalance;
     },
 
-    [transactionExpensePost.fulfilled]: (_, { payload }) => {
-      return payload.newBalance;
+    [expensePost.fulfilled]: (state, { payload }) => {
+      state = payload.newBalance;
     },
 
-    [userBalancePatch.fulfilled]: (_, { payload }) => {
-      return payload;
+    [userBalancePatch.fulfilled]: (state, { payload }) => {
+      state = payload;
     },
 
-    [transactionDelete.fulfilled]: (_, { payload }) => {
-      return payload.newBalance;
+    [incomeDelete.fulfilled]: (state, { payload }) => {
+      state = payload.newBalance;
+    },
+    [expenseDelete.fulfilled]: (state, { payload }) => {
+      state = payload.newBalance;
     },
   },
 });

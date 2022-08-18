@@ -4,21 +4,25 @@ import ButtonBack from '../ButtonBack/ButtonBack';
 import SliderDate from '../SliderDate/SliderDate';
 import s from './Balance.module.css';
 
-const balance = 23;
+const btnBack = false;
 
 const Balance = props => {
   return (
     <>
-      {/* <ButtonBack/> */}
-    <div className={s.container}>
+    <div className={btnBack?s.containerWithBtnBack:s.containerWithOutBtnBack}>
 
         <p className={s.text}>Balance: </p>
-        <span className={s.balanceContainer}>{balance} UAH</span>
-      <button className={s.btn}>Confirm</button>
+        <div className={s.inpuWrap}>
+          <input
+          className={btnBack?s.balanceContainer:s.balanceContainerWithOutBtn}
+          // value={balance}
+          placeholder='0,00 UAH'
+        />
+      <button className={btnBack? s.btnWithBtnBack:s.btn}>Confirm</button>
+        </div>
 
-      </div>
-      {/* <SliderDate/> */}
-      {/* <ReportButton/> */}
+
+        </div>
     </>
   )
 }

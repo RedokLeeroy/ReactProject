@@ -12,8 +12,11 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/auth-slice';
 import { balanceReducer } from './balance/balance-slice';
-import { transactionReducer } from './transaction/transaction-slice';
+import { incomeReducer } from './income/income-slice';
 import { userReducer } from './user/user-slice';
+import { expenseReducer } from './expense/expense-slice';
+import { reportReducer } from './report/reports-slice';
+import currentPeriodReducer from './currentPeriod/currentPeriodSlice';
 
 //----------------------------------------------------------------//
 
@@ -27,9 +30,12 @@ const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    transaction: transactionReducer,
     user: userReducer,
+    currentPeriod: currentPeriodReducer,
     balance: balanceReducer,
+    income: incomeReducer,
+    expense: expenseReducer,
+    report: reportReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>
