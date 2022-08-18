@@ -4,12 +4,8 @@ import { TransactionTable } from 'components/TransactionTable/TransactionTable';
 import { useState } from 'react';
 import s from './Main.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import {
-  expenseCategories,
-  expensePost,
-} from 'redux/expense/expense-operations';
-import { NavLink, useLocation, useParams } from 'react-router-dom';
+import { expensePost } from 'redux/expense/expense-operations';
+import { NavLink, useLocation } from 'react-router-dom';
 import { incomePost } from 'redux/income/income-operations';
 export const Main = () => {
   const [description, setDescription] = useState('');
@@ -27,7 +23,6 @@ export const Main = () => {
   const dispatch = useDispatch();
 
   const params = useLocation().pathname;
-  // console.log('~ params', params);
   let products;
 
   if (params === '/expenses') {
@@ -36,13 +31,6 @@ export const Main = () => {
   if (params === '/income') {
     products = prodInc;
   }
-
-  console.log('~ products', products);
-  // useEffect(() => {
-  //   if (isLogin) {
-  //     dispatch(expenseCategories());
-  //   }
-  // }, [dispatch, isLogin]);
 
   const handleChangeForm = evt => {
     const { value, name } = evt.target;
@@ -79,7 +67,6 @@ export const Main = () => {
       category: category,
     };
 
-    console.log('submit:', items);
     if (params === '/expenses') {
       dispatch(expensePost(items));
     }
