@@ -1,7 +1,10 @@
-/* .container {
-  background-color: rgb(254, 191, 191);
+.container {
+  background-color: transparent;
+  margin: 0 auto;
   box-sizing: border-box;
-} */
+  /* outline: 1px solid teal; */
+  max-width: 1098px;
+}
 
 .inputDate {
   width: 104px;
@@ -9,11 +12,19 @@
   outline: none;
   border: none;
 }
-
+.calendar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 32px;
+  padding-top: 4px;
+  height: 44px;
+}
 .btn,
 .btnAccent {
-  padding: 18px 50px;
-  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 12px;
   font-weight: 700;
   list-style: 1.17;
@@ -22,7 +33,9 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: #fafbfd;
-  border: none;
+  border: 0px;
+  color: #000000;
+  /* outline: 1px solid rgb(13, 64, 64); */
 }
 
 .btnAccent {
@@ -33,12 +46,13 @@
 .contentContainer {
   position: relative;
   box-sizing: border-box;
-  max-width: 1098px;
+  /* max-width: 1098px; */
   height: 579px;
-  border-radius: 30px;
-  background-color: #fff;
-  border-top-left-radius: 0;
+  background: #ffffff;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 0px 30px 30px 30px;
   padding: 32px 32px 61px;
+  /* outline: 1px solid rgb(212, 188, 30); */
 }
 
 .formContainer {
@@ -48,29 +62,32 @@
   /* height: 44px; */
   overflow: hidden;
   margin-bottom: 60px;
+  /* outline: 1px solid rgb(106, 19, 220); */
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1280px) {
   .formContainer {
     justify-content: center;
+    margin-bottom: 28px;
   }
 }
 .form {
   display: inline-flex;
   height: 100%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
   .form {
-    max-width: 624px;
+    margin-bottom: 32px;
   }
 }
 
 .inputDescription {
+  /* display: inline-flex; */
   font-size: 12px;
   color: #52555f;
   font-weight: 400;
   display: block;
-  min-width: 290px;
+  width: 290px;
   height: 44px;
   border: 2px solid;
   border-color: #f5f6fb;
@@ -80,9 +97,9 @@
   outline: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
   .inputDescription {
-    min-width: 184px;
+    max-width: 184px;
   }
 }
 .inputDescription::placeholder {
@@ -108,8 +125,9 @@
 .listCategory {
   position: absolute;
   top: 80px;
-  width: 190px;
+  width: 182px;
   background-color: #fff;
+  z-index: 10;
 }
 
 .itemCategory {
@@ -118,10 +136,13 @@
   font-weight: 400;
   cursor: pointer;
   line-height: 2;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .itemCategory:hover {
   color: #52555f;
+  background-color: #f5f6fb;
 }
 
 .inputSumm {
@@ -150,17 +171,21 @@
   justify-content: space-between;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
   .buttonContainer {
+    margin-bottom: 32px;
+    display: flex;
+    /* margin-top: 32px; */
     width: 265px;
   }
 }
 
 .tableContainer {
   display: flex;
+  /* outline: 1px solid rgb(25, 218, 28); */
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
   .tableContainer {
     flex-wrap: wrap;
   }
@@ -168,15 +193,26 @@
 .prods {
   width: 746px;
   height: 380px;
+  /* outline: 1px solid rgb(165, 60, 221); */
 }
-/* outline: 1px solid teal; */
 
 .sumary {
   width: 213px;
   height: 280px;
   margin-left: 75px;
+  /* outline: 1px solid rgb(206, 56, 103); */
 }
-/* outline: 1px solid teal; */
+@media screen and (max-width: 1280px) {
+  .sumary {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sumary {
+    display: none;
+  }
+}
 
 /* @media screen and (min-width: 400px) {
   .box {

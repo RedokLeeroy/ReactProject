@@ -1,17 +1,14 @@
 import DatePicker from 'react-datepicker';
 import { useState, forwardRef } from 'react';
 import styles from '../Calendar/Calendar.module.css';
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
 
-
-export const Calendar = () => {
+export const Calendar = ({ setDate }) => {
   const [startDate, setStartDate] = useState(new Date());
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-    
-
     <button className={styles.btn_calendar} onClick={onClick} ref={ref}>
       <svg
-      className={styles.svg_calendar}
+        className={styles.svg_calendar}
         width="20"
         height="20"
         viewBox="0 0 20 20"
@@ -54,9 +51,12 @@ export const Calendar = () => {
   return (
     <div className={styles.container}>
       <DatePicker
-        dateFormat="dd.MM.yyy"
+        dateFormat="dd.MM.yyyy"
         selected={startDate}
-        onChange={date => setStartDate(date)}
+        onChange={date => {
+          setStartDate(date);
+          setDate(date.toISOString());
+        }}
         customInput={<ExampleCustomInput />}
       />
     </div>
