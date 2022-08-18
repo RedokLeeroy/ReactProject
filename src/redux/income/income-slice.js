@@ -22,7 +22,7 @@ const incomeSlice = createSlice({
     },
 
     [incomePost.fulfilled]: (state, { payload }) => {
-      state.incomes = [payload?.transaction, ...state.data];
+      state.data = [payload?.transaction, ...state.data];
       state.isLoading = false;
     },
     [incomePost.rejected]: (state, _) => {

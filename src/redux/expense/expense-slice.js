@@ -22,7 +22,7 @@ const expenseSlice = createSlice({
     },
 
     [expensePost.fulfilled]: (state, { payload }) => {
-      state.incomes = [payload?.transaction, ...state.data];
+      state.data = [payload?.transaction, ...state.data];
       state.isLoading = false;
     },
     [expensePost.rejected]: (state, _) => {
