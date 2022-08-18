@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router';
 import Layout from './Layout/Layout';
 // import PageAuth from 'Page/PageAuth';
-import PageNotFound from 'Page/PageNotFound';
+import PageNotFound from 'Page/PageNotFound/PageNotFound';
 import Transaction from '../Page/Transaction';
 import Expenses from '../Page/Expenses';
 import Income from '../Page/Income';
