@@ -16,7 +16,7 @@ const userSlice = createSlice({
 
     [userGet.fulfilled]: (state, { payload }) => {
       state.isLogin = true;
-      return payload.data;
+      state.user = payload;
     },
 
     [userGet.rejected]: (state, _) => {

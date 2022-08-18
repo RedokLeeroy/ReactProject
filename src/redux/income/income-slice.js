@@ -49,7 +49,7 @@ const incomeSlice = createSlice({
 
     [incomeCategories.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.categories = payload.data;
+      state.categories = payload;
     },
 
     [incomeCategories.rejected]: (state, _) => {

@@ -11,7 +11,7 @@ export const BackgroundHome = ({ children }) => {
       <div className={css.cabbage}></div>
       <div className={css.title}></div>
       <div className={css.twoCabbage}></div>
-      {children}
+      <div>{children}</div>
     </div>
   ) : (
     BackgroundMain

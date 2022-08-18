@@ -15,7 +15,7 @@ const reportSlice = createSlice({
 
     [periodData.fulfilled]: (state, { payload }) => {
       state.isLogin = true;
-      state.periodData = payload.data;
+      state.periodData = payload;
     },
 
     [periodData.rejected]: (state, _) => {
