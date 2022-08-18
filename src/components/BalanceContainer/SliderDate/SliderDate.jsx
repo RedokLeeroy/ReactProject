@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { goBackOneMonth, goForwardOneMonth } from 'redux/currentPeriod/currentPeriodSlice';
-import { getMonth, getYear } from 'redux/currentPeriod/currentPeriodSelectors';
+import { getMonth, getYear,getToken } from 'redux/currentPeriod/currentPeriodSelectors';
 import { getPeriodData } from 'redux/currentPeriod/currentPeriodOperation';
 import { ReactComponent as LeftArrow } from '../../../images/left-arrow.svg'
 import { ReactComponent as RightArrow } from '../../../images/right-arrow.svg'
@@ -30,6 +30,9 @@ const SliderDate = props => {
   const dispatch = useDispatch();
   const month = useSelector(getMonth);
   const year = useSelector(getYear);
+  const token = useSelector(getToken);
+
+
 
     const onClickRight = () => {
     dispatch(goBackOneMonth());
@@ -40,10 +43,11 @@ const SliderDate = props => {
   };
 
   useEffect(() => {
+    if (!token) return;
     
   dispatch(getPeriodData(`${year}-${month.toString().padStart(2, 0)}`));
 
-  }, [dispatch, month, year])
+  }, [dispatch, month, year,token])
   
   return (
           <div className={s.baseContainer}>
