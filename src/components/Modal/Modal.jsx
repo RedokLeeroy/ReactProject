@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
-import svg from '../../svgReport/close.svg';
+import sprite from '../../images/sprite.svg';
 
 export default function Modal({
   title = 'Do you really want to leave?',
@@ -12,7 +12,7 @@ export default function Modal({
       <div className={css.modal}>
         <button className={css.closeButton} type="button">
           <svg className={css.svg} width={12} height={12}>
-            <use href={svg}></use>
+            <use href={`${sprite}#close`}></use>
           </svg>
         </button>
         <p className={css.title}>{title}</p>
