@@ -1,6 +1,23 @@
-.calc {
-    background-color: white;
-    border: none;
-    margin: 0;
-    padding: 0;
+.container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    
+}
+
+.inputCount {
+    width: 119px;
+    height: 44px;
+    border: 2px solid #F6F7FC;
+    border-radius: 0px 16px 16px 0px;
+    text-align: center;
+    color: #C7CCDC;
+}
+
+
+
+.svgCalc {
+    position: relative;
+    top: 0px;
+    right: 36px;
 }
