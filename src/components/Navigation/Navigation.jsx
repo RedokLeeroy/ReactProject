@@ -2,9 +2,10 @@ import styles from './Navigation.module.css';
 import Sprite from '../../images/sprite.svg';
 import { useSelector } from 'react-redux';
 import UserMenu from 'components/UserMenu/UserMenu';
+import { getIsLoggedIn } from 'redux/auth/auth-selector';
 
 const Navigation = () => {
-  const isLogin = useSelector(state => state.auth.isLogin);
+  const isLogin = useSelector(getIsLoggedIn);
 
   return (
     <header className={styles.header}>
