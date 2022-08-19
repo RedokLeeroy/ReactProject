@@ -15,6 +15,7 @@ export const Main = () => {
   const dateNow = new Date();
   const [datePicker, setDatePicker] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
   const prodExp = useSelector(({ expense }) => expense.categories);
   const prodInc = useSelector(({ income }) => income.categories);
   const expensesTransactionData = useSelector(
@@ -62,6 +63,7 @@ export const Main = () => {
     setDescription('');
     setCategory('');
     setSum('');
+    setStartDate(new Date());
   };
 
   const handleSubmitForm = evt => {
@@ -116,7 +118,11 @@ export const Main = () => {
       <div className={s.contentContainer}>
         <div className={s.formContainer}>
           <div className={s.calendar}>
-            <Calendar setDate={setDatePicker} />
+            <Calendar
+              setDate={setDatePicker}
+              startDate={startDate}
+              setStartDate={setStartDate}
+            />
           </div>
           <form className={s.form} onSubmit={handleSubmitForm}>
             <input
