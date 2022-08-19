@@ -8,7 +8,6 @@ import {
 
 const Expenses = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(expenseCategories());
     dispatch(expenseGet());

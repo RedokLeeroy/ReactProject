@@ -15,6 +15,7 @@ export const Main = () => {
   const dateNow = new Date();
   const [datePicker, setDatePicker] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
   const prodExp = useSelector(({ expense }) => expense.categories);
   const prodInc = useSelector(({ income }) => income.categories);
   const expensesTransactionData = useSelector(
@@ -69,6 +70,7 @@ export const Main = () => {
     setDescription('');
     setCategory('');
     setSum('');
+    setStartDate(new Date());
   };
 
   const handleSubmitForm = evt => {
@@ -94,6 +96,12 @@ export const Main = () => {
     setList(!list);
   };
 
+  const handleCloseByDrope = evt => {
+    if (evt.target === evt.currentTarget) {
+      setList(!list);
+    }
+  };
+
   return (
     <div className={s.container}>
       <nav>
@@ -117,7 +125,11 @@ export const Main = () => {
       <div className={s.contentContainer}>
         <div className={s.formContainer}>
           <div className={s.calendar}>
-            <Calendar setDate={setDatePicker} />
+            <Calendar
+              setDate={setDatePicker}
+              startDate={startDate}
+              setStartDate={setStartDate}
+            />
           </div>
           <form className={s.form} onSubmit={handleSubmitForm}>
             <input
@@ -139,23 +151,27 @@ export const Main = () => {
                 ) : (
                   <p style={{ color: '#c7ccdc' }}>Product category</p>
                 )}
+                <span className={s.role}>&#129171;</span>
               </button>
               {list && (
-                <ul className={s.listCategory}>
-                  {products.map((el, ind) => (
-                    <li
-                      value={el}
-                      key={ind}
-                      className={s.itemCategory}
-                      onClick={() => {
-                        setCategory(el);
-                        handleIsListTogle();
-                      }}
-                    >
-                      {el}
-                    </li>
-                  ))}
-                </ul>
+                <>
+                  <div className={s.overlay} onClick={handleCloseByDrope}></div>
+                  <ul className={s.listCategory}>
+                    {products.map((el, ind) => (
+                      <li
+                        value={el}
+                        key={ind}
+                        className={s.itemCategory}
+                        onClick={() => {
+                          setCategory(el);
+                          handleIsListTogle();
+                        }}
+                      >
+                        {el}
+                      </li>
+                    ))}
+                  </ul>
+                </>
               )}
             </div>
 
