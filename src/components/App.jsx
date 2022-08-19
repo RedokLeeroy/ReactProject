@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRefresh } from 'redux/auth/auth-operations';
 import { PublicRoute } from './PublicRoute/PublicRoute';
+import Team from 'Page/Team';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ export const App = () => {
         <Route path="/report" element={<Transaction />}>
           <Route index element={<Report />} />
         </Route>
+        <Route path="/team" element={<Team />}></Route>
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
