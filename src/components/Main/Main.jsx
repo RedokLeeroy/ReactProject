@@ -95,6 +95,10 @@ export const Main = () => {
     }
   };
 
+  const setDate = date => {
+    setDatePicker(date.toISOString());
+  };
+
   return (
     <div className={s.container}>
       <nav>
@@ -119,7 +123,7 @@ export const Main = () => {
         <div className={s.formContainer}>
           <div className={s.calendar}>
             <Calendar
-              setDate={setDatePicker}
+              setDate={setDate}
               startDate={startDate}
               setStartDate={setStartDate}
             />
