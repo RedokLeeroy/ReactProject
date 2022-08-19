@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { incomePost, incomeDelete } from 'redux/income/income-operations';
 import { expensePost, expenseDelete } from 'redux/expense/expense-operations';
 import { userBalancePatch } from './balance-operations';
+import { userGet } from 'redux/user/user-operations';
 const initialState = 0;
 
 const balanceSlice = createSlice({
@@ -25,6 +26,9 @@ const balanceSlice = createSlice({
     },
     [expenseDelete.fulfilled]: (state, { payload }) => {
       return payload.newBalance;
+    },
+    [userGet.fulfilled]: (state, { payload }) => {
+      return payload.balance;
     },
   },
 });
