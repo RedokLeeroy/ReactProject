@@ -1,9 +1,11 @@
 .bar {
-  width: 758px;
-  margin: 0 auto;
+    width: 80%;
+    height:80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .barMobile {
-  width: 90%;
-  margin: auto;
+    width: 90%;
+    margin: auto;
 }

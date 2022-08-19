@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { logIn, signIn } from 'redux/auth/auth-operations';
 import styles from './AuthForm.module.css';
 import Sprite from '../../images/sprite.svg';
 
 export default function AuthForm() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emptyInput, setEmptyInput] = useState(false);
@@ -35,7 +33,6 @@ export default function AuthForm() {
   const handleLogin = event => {
     event.preventDefault();
     const credentials = { email, password };
-    navigate('/expenses');
 
     if (checkValidData()) {
       return;
@@ -68,8 +65,9 @@ export default function AuthForm() {
     if (checkValidData()) {
       return;
     }
-    dispatch(signIn(credentials));
-    navigate('/expenses');
+    dispatch(signIn(credentials))
+      .unwrap()
+      .then(() => dispatch(logIn(credentials)));
   };
 
   return (
@@ -78,7 +76,10 @@ export default function AuthForm() {
         <p className={styles.googleText}>
           You can log in with your Google Account:
         </p>
-        <a className={styles.googleButton} href="https://accounts.google.com">
+        <a
+          className={styles.googleButton}
+          href="https://kapusta-backend.goit.global/auth/google"
+        >
           <svg className={styles.googleSvg} width="18" height="18">
             <use className={styles.googleIcon} href={`${Sprite}#google-icon`} />
           </svg>
