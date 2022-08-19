@@ -2,8 +2,6 @@ import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
 import sprite from '../../images/sprite.svg';
 
-//клікабельність кнопок треба додавати тут??
-
 export default function Modal({ title, onSubmitButton, onRejectButton }) {
 
   return createPortal(
