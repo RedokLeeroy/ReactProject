@@ -5,7 +5,7 @@ import Sprite from '../../images/sprite.svg';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
-  const userName = useSelector(state => state.auth?.user?.email);
+  const userName = useSelector(state => state.user?.user?.email);
   const avatarName = userName?.slice(0, 1).toLocaleUpperCase();
 
   return (

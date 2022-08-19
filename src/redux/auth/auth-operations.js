@@ -1,44 +1,20 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
-
-const tokenAuth = {
-  set(accessToken) {
-    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
-  },
-
-  unset() {
-    axios.defaults.headers.common.Authorization = ``;
-  },
-};
+import { API, tokenAuth } from 'API';
 
 export const signIn = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post('auth/register', credentials);
-    return data;
-  } catch (error) {
-    return error;
-  }
+  const { data } = await API.post('auth/register', credentials);
+  return data;
 });
 
 export const logIn = createAsyncThunk('auth/logIn', async credentials => {
-  try {
-    const { data } = await axios.post('auth/login', credentials);
-    tokenAuth.set(data.accessToken);
-    return data;
-  } catch (error) {
-    return error;
-  }
+  const { data } = await API.post('auth/login', credentials);
+  tokenAuth.set(data.accessToken);
+  return data;
 });
 
 export const logOut = createAsyncThunk('auth/logout', async () => {
-  try {
-    await axios.post('auth/logout');
-    tokenAuth.unset();
-  } catch (error) {
-    return error;
-  }
+  await API.post('auth/logout');
+  tokenAuth.unset();
 });
 
 export const getRefresh = createAsyncThunk(
@@ -51,7 +27,7 @@ export const getRefresh = createAsyncThunk(
       return rejectWithValue('something went wrong');
     }
     try {
-      const { data } = await axios.post(
+      const { data } = await API.post(
         '/auth/refresh',
         { sid: oldSid },
         {

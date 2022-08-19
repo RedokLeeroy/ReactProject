@@ -1,19 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
-
-// export const token = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = '';
-//   },
-// };
+import { API } from 'API';
 
 export const getTransactionPeriodData = date =>
-  axios.get(`/transaction/period-data?date=${date}`);
+  API.get(`/transaction/period-data?date=${date}`);
 
 const getPeriodData = createAsyncThunk(
   'currentPeriod/getPeriodData',
