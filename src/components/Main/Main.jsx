@@ -8,6 +8,7 @@ import { expenseGet, expensePost } from 'redux/expense/expense-operations';
 import { NavLink, useLocation } from 'react-router-dom';
 import { incomePost, incomeGet } from 'redux/income/income-operations';
 import { Calendar } from 'components/Calendar/Calendar';
+import { Calculator } from 'components/Calculator/Calculator';
 export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -144,6 +145,7 @@ export const Main = () => {
             <input
               className={s.inputDescription}
               placeholder="Product description"
+              autoComplete="off"
               type="text"
               name="description"
               value={description}
@@ -183,19 +185,21 @@ export const Main = () => {
                 </>
               )}
             </div>
-
-            <input
-              className={s.inputSumm}
-              placeholder="0,00"
-              type="number"
-              name="sum"
-              value={sum}
-              onChange={handleChangeForm}
-            />
+            <div className={s.inputSummContainer}>
+              <input
+                className={s.inputSumm}
+                placeholder="0,00"
+                type="number"
+                name="sum"
+                value={sum}
+                onChange={handleChangeForm}
+              />
+              <Calculator />
+            </div>
           </form>
           <div className={s.buttonContainer}>
             <Button text={'INPUT'} type={'submit'} onClick={handleSubmitForm} />
-            <Button text={'CLEAR'} onClick={handleResetForm} />
+            <Button text={'CLEAR'} type={'button'} onClick={handleResetForm} />
           </div>
         </div>
 
