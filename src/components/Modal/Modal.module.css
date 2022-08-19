@@ -38,35 +38,36 @@
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.closeButton:hover {
+@media screen and (max-width: 400px) {
+  .closeButton {
+    padding: 3px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.closeButton:hover,
+.closeButton:focus {
   background-color: #ff751d;
   border: 2px solid #838385;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.svg {
-  fill: #52555F;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.closeButton:hover>.svg{
+.closeButton:hover > .svg,
+.closeButton:focus > .svg {
   fill: rgb(253, 253, 253);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media screen and (max-width: 400px) {
-  .closeButton {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.svg {
+  fill: #52555f;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .title {
