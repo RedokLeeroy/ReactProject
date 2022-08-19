@@ -196,6 +196,12 @@
   /* outline: 1px solid rgb(165, 60, 221); */
 }
 
+@media screen and (max-width: 1280px) {
+  .prods {
+    margin-bottom: 90px;
+  }
+}
+
 .sumary {
   width: 213px;
   height: 280px;
