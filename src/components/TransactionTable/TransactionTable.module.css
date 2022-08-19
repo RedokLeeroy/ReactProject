@@ -14,7 +14,6 @@ ul {
 
 .Thead {
   display: grid;
-  /* grid-template-columns: 100px 252px 147px 147px 100px; */
   grid-template-columns: 1fr 2.6fr 1.5fr 1.5fr 1fr;
   background-color: #f5f6fb;
   text-align: center;
@@ -37,8 +36,8 @@ ul {
 .Tbody {
   display: flex;
   flex-direction: column;
-  height: 342px;
-  max-height: 342px;
+  height: 340px;
+  /* max-height: 342px; */
   background-image: url('images/TableGrid.png');
   overflow-y: scroll;
 }
@@ -63,8 +62,11 @@ ul {
   }
 
   .Thead {
-    /* grid-template-columns: 100px 252px 147px 147px 100px; */
     grid-template-columns: 1fr 1.9fr 1fr 1fr 0.6fr;
+  }
+
+  .Tbody {
+    height: 344px;
   }
 
   .Date {
@@ -82,6 +84,7 @@ ul {
   .Table {
     max-width: none;
     border: none;
+    overflow: visible;
   }
 
   .Thead {
@@ -90,6 +93,9 @@ ul {
 
   .Tbody {
     background-image: none;
-    overflow: auto;
+    overflow: visible;
+  }
+  .Tbody::-webkit-scrollbar {
+    display: none;
   }
 }
