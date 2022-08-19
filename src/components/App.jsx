@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRefresh } from 'redux/auth/auth-operations';
 import { PublicRoute } from './PublicRoute/PublicRoute';
-import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 // import Modal from './Modal/Modal';
 
 export const App = () => {
@@ -33,27 +32,14 @@ export const App = () => {
         />
 
         <Route path="/expenses" element={<Transaction />}>
-          <Route
-            index
-            element={
-              <PrivateRoute>
-                <Expenses />
-              </PrivateRoute>
-            }
-          />
+          <Route index element={<Expenses />} />
         </Route>
         <Route path="/income" element={<Transaction />}>
-          <Route
-            index
-            element={
-              <PrivateRoute>
-                <Income />
-              </PrivateRoute>
-            }
-          />
+          <Route index element={<Income />} />
         </Route>
-        <Route path="report" element={<Report />} />
-
+        <Route path="/report" element={<Transaction />}>
+          <Route index element={<Report />} />
+        </Route>
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

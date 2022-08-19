@@ -24,7 +24,7 @@ import { reportBtnSlice } from './report/reportBtn-slice';
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken', 'refreshToken', 'sid', 'user', 'isLogin'],
+  whitelist: ['accessToken', 'refreshToken', 'sid', 'user'],
 };
 const persistedReducer = persistReducer(persistConfig, authReducer);
 

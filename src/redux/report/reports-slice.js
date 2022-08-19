@@ -9,18 +9,13 @@ const reportSlice = createSlice({
   name: 'report',
   initialState: reportInitialState,
   extraReducers: {
-    [periodData.pending]: (state, _) => {
-      state.isLogin = false;
-    },
+    [periodData.pending]: (state, _) => {},
 
     [periodData.fulfilled]: (state, { payload }) => {
-      state.isLogin = true;
       state.periodData = payload;
     },
 
-    [periodData.rejected]: (state, _) => {
-      state.isLogin = false;
-    },
+    [periodData.rejected]: (state, _) => {},
   },
 });
 
