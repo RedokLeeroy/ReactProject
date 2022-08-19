@@ -64,5 +64,17 @@
     "sum": 3000.0,
     "icon": "icon-other",
     "name": "Прочее"
+  },
+  {
+    "id": 11,
+    "sum": 3000.0,
+    "icon": "icon-other-income",
+    "name": "Доп. доход"
+  },
+  {
+    "id": 11,
+    "sum": 3000.0,
+    "icon": "icon-salary",
+    "name": "З/П"
   }
 ]
