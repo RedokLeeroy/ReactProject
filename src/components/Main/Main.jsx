@@ -18,13 +18,13 @@ export const Main = () => {
   const prodExp = useSelector(state => state.expense.categories);
   const prodInc = useSelector(state => state.income.categories);
   const dispatch = useDispatch();
-  const location = useLocation().pathname;
+  const pageLocation = useLocation().pathname;
   let products;
 
-  if (location === '/expenses') {
+  if (pageLocation === '/expenses') {
     products = prodExp;
   }
-  if (location === '/income') {
+  if (pageLocation === '/income') {
     products = prodInc;
   }
 
@@ -60,10 +60,10 @@ export const Main = () => {
       category: category,
     };
 
-    if (location === '/expenses') {
+    if (pageLocation === '/expenses') {
       dispatch(expensePost(items));
     }
-    if (location === '/income') {
+    if (pageLocation === '/income') {
       dispatch(incomePost(items));
     }
 
