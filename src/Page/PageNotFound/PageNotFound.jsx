@@ -1,8 +1,25 @@
 import { Link } from 'react-router-dom';
 import Animation from 'components/animation/animation';
 import styles from '../PageNotFound/PageNotFound.module.css';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PageNotFound = () => {
+  const isLogin = useSelector(state => state.auth.isLoggerIn);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate('/expenses');
+      return;
+    }
+    // } else {
+    //   navigate('/login');
+    //   return;
+    // }
+  }, [isLogin, navigate]);
+
   return (
     <>
       <div className={styles.NotFoundBackground}>
