@@ -7,10 +7,11 @@ import {
 } from './income-operations';
 
 const incomesInitialState = {
-  data: [],
+  // data: [],
+  incomes: [],
   categories: [],
-  monthStats: {},
-  isLoading: true,
+  monthsStats: {},
+  isLoading: false,
 };
 
 const incomeSlice = createSlice({
@@ -22,7 +23,7 @@ const incomeSlice = createSlice({
     },
 
     [incomePost.fulfilled]: (state, { payload }) => {
-      state.data = [payload?.transaction, ...state.data];
+      state.incomes = [payload?.transaction, ...state.incomes];
       state.isLoading = false;
     },
     [incomePost.rejected]: (state, _) => {
@@ -35,8 +36,8 @@ const incomeSlice = createSlice({
 
     [incomeGet.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.data;
-      state.monthStats = payload.monthStats;
+      state.incomes = payload.incomes;
+      state.monthsStats = payload.monthsStats;
     },
 
     [incomeGet.rejected]: (state, _) => {
@@ -62,7 +63,7 @@ const incomeSlice = createSlice({
 
     [incomeDelete.fulfilled]: (state, { payload, meta }) => {
       state.isLoading = false;
-      state.data = state.data.filter(el => meta.arg !== el._id);
+      state.incomes = state.incomes.filter(el => meta.arg !== el._id);
     },
 
     [incomeDelete.rejected]: (state, _) => {

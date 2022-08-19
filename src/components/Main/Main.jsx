@@ -15,17 +15,33 @@ export const Main = () => {
   const dateNow = new Date();
   const [datePicker, setDatePicker] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
-  const prodExp = useSelector(state => state.expense.categories);
-  const prodInc = useSelector(state => state.income.categories);
+
+  // const [products, setProducts] = useState([]);
+
+  const prodExp = useSelector(({ expense }) => expense.categories);
+  const prodInc = useSelector(({ income }) => income.categories);
+  const expensesTransactionData = useSelector(
+    ({ expense }) => expense.expenses
+  );
+  const incomesTransactionData = useSelector(({ income }) => income.incomes);
+  const expensesSummaryData = useSelector(({ expense }) => expense.monthsStats);
+  const incomesSummaryData = useSelector(({ income }) => income.monthsStats);
   const dispatch = useDispatch();
   const pageLocation = useLocation().pathname;
+
   let products;
+  let transactionData;
+  let summaryData;
 
   if (pageLocation === '/expenses') {
     products = prodExp;
+    transactionData = expensesTransactionData;
+    summaryData = expensesSummaryData;
   }
   if (pageLocation === '/income') {
     products = prodInc;
+    transactionData = incomesTransactionData;
+    summaryData = incomesSummaryData;
   }
 
   const handleChangeForm = evt => {
@@ -156,10 +172,13 @@ export const Main = () => {
 
         <div className={s.tableContainer}>
           <div className={s.prods}>
-            <TransactionTable />
+            <TransactionTable
+              transactionData={transactionData}
+              tablePage={pageLocation}
+            />
           </div>
           <div className={s.sumary}>
-            <SummaryTable />
+            <SummaryTable summaryData={summaryData} />
           </div>
         </div>
       </div>
