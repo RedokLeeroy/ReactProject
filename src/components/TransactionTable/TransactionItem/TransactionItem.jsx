@@ -6,17 +6,17 @@ export const TransactionItem = ({
   tablePage,
   hendelDelete,
 }) => {
-  const { data, description, category, sum, _id } = transactionData;
+  const { date, description, category, amount, _id } = transactionData;
 
   return (
     <ul className={s.Line} id={_id}>
-      <li className={s.Date}>{data}</li>
+      <li className={s.Date}>{date}</li>
       <li className={s.Description}>{description}</li>
       <li className={s.Category}>{category}</li>
-      {tablePage === 'expenses' ? (
-        <li className={s.ExpensesSum}>{`- ${sum} грн.`}</li>
+      {tablePage === '/expenses' ? (
+        <li className={s.ExpensesSum}>{`- ${amount} грн.`}</li>
       ) : (
-        <li className={s.IncomeSum}>{`${sum} грн.`}</li>
+        <li className={s.IncomeSum}>{`${amount} грн.`}</li>
       )}
       <li className={s.Delete}>
         <button
