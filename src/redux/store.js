@@ -17,6 +17,7 @@ import { userReducer } from './user/user-slice';
 import { expenseReducer } from './expense/expense-slice';
 import { reportReducer } from './report/reports-slice';
 import currentPeriodReducer from './currentPeriod/currentPeriodSlice';
+import { reportBtnSlice } from './report/reportBtn-slice';
 
 //----------------------------------------------------------------//
 
@@ -36,6 +37,7 @@ const store = configureStore({
     income: incomeReducer,
     expense: expenseReducer,
     report: reportReducer,
+    reportCurrentBtn: reportBtnSlice.reducer,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>

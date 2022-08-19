@@ -7,17 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { expensePost } from 'redux/expense/expense-operations';
 import { NavLink, useLocation } from 'react-router-dom';
 import { incomePost } from 'redux/income/income-operations';
+import { Calendar } from 'components/Calendar/Calendar';
 export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [sum, setSum] = useState('');
-  // eslint-disable-next-line no-unused-vars
   const dateNow = new Date();
-  // eslint-disable-next-line no-unused-vars
-  const [date, setDate] = useState(dateNow.toISOString());
+  const [datePicker, setDatePicker] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
-  // const [products, setProducts] = useState([]);
-
   const prodExp = useSelector(({ expense }) => expense.categories);
   const prodInc = useSelector(({ income }) => income.categories);
   const expensesTransactionData = useSelector(
@@ -26,21 +23,19 @@ export const Main = () => {
   const incomesTransactionData = useSelector(({ income }) => income.incomes);
   const expensesSummaryData = useSelector(({ expense }) => expense.monthsStats);
   const incomesSummaryData = useSelector(({ income }) => income.monthsStats);
-  // const isLogin = useSelector(state => state.auth.isLogin);
   const dispatch = useDispatch();
-
-  const params = useLocation().pathname;
+  const pageLocation = useLocation().pathname;
 
   let products;
   let transactionData;
   let summaryData;
 
-  if (params === '/expenses') {
+  if (pageLocation === '/expenses') {
     products = prodExp;
     transactionData = expensesTransactionData;
     summaryData = expensesSummaryData;
   }
-  if (params === '/income') {
+  if (pageLocation === '/income') {
     products = prodInc;
     transactionData = incomesTransactionData;
     summaryData = incomesSummaryData;
@@ -58,9 +53,6 @@ export const Main = () => {
       case 'sum':
         setSum(value);
         break;
-      // case 'date':
-      //   setDate(Date.now());
-      //   break;
       default:
         return;
     }
@@ -77,14 +69,14 @@ export const Main = () => {
     const items = {
       description: description,
       amount: Number(sum),
-      date: date.slice(0, 10),
+      date: datePicker.slice(0, 10),
       category: category,
     };
 
-    if (params === '/expenses') {
+    if (pageLocation === '/expenses') {
       dispatch(expensePost(items));
     }
-    if (params === '/income') {
+    if (pageLocation === '/income') {
       dispatch(incomePost(items));
     }
 
@@ -115,18 +107,12 @@ export const Main = () => {
           INCOME
         </NavLink>
       </nav>
-      {/* <button className={s.btnAccent}>EXPENSES</button>
-      <button className={s.btn}>INCOME</button> */}
       <div className={s.contentContainer}>
         <div className={s.formContainer}>
+          <div className={s.calendar}>
+            <Calendar setDate={setDatePicker} />
+          </div>
           <form className={s.form} onSubmit={handleSubmitForm}>
-            <input
-              className={s.inputDate}
-              type="text"
-              placeholder="Wait for date"
-              // value={date}
-              onChange={handleChangeForm}
-            />
             <input
               className={s.inputDescription}
               placeholder="Product description"
@@ -176,17 +162,8 @@ export const Main = () => {
             />
           </form>
           <div className={s.buttonContainer}>
-            <Button
-              // className={s.buttonContainer}
-              text={'INPUT'}
-              type={'submit'}
-              onClick={handleSubmitForm}
-            />
-            <Button
-              // className={s.buttonContainer}
-              text={'CLEAR'}
-              onClick={handleResetForm}
-            />
+            <Button text={'INPUT'} type={'submit'} onClick={handleSubmitForm} />
+            <Button text={'CLEAR'} onClick={handleResetForm} />
           </div>
         </div>
 
@@ -194,7 +171,7 @@ export const Main = () => {
           <div className={s.prods}>
             <TransactionTable
               transactionData={transactionData}
-              tablePage={params}
+              tablePage={pageLocation}
             />
           </div>
           <div className={s.sumary}>

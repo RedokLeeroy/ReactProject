@@ -47,7 +47,7 @@ export const getRefresh = createAsyncThunk(
     const state = getState();
     const oldSid = state.auth.sid;
     const oldRefresh = state.auth.refreshToken;
-    if (!oldSid) {
+    if (!oldRefresh || !oldSid) {
       return rejectWithValue('something went wrong');
     }
     try {
@@ -63,7 +63,8 @@ export const getRefresh = createAsyncThunk(
       tokenAuth.set(data.newAccessToken);
       return data;
     } catch (error) {
-      return error;
+      tokenAuth.unset();
+      return rejectWithValue('something went wrong');
     }
   }
 );
