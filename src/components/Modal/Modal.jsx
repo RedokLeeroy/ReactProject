@@ -10,7 +10,7 @@ export default function Modal({
   return createPortal(
     <div className={css.backdrop}>
       <div className={css.modal}>
-        <button className={css.closeButton}>
+        <button className={css.closeButton} type="button">
           <svg className={css.svg} width={12} height={12}>
             <use href={`${sprite}#close`}></use>
           </svg>
