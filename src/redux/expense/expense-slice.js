@@ -7,9 +7,10 @@ import {
 } from './expense-operations';
 
 const expensesInitialState = {
-  data: [],
+  // data: [],
+  expenses: [],
   categories: [],
-  monthStats: {},
+  monthsStats: {},
   isLoading: false,
 };
 
@@ -22,7 +23,7 @@ const expenseSlice = createSlice({
     },
 
     [expensePost.fulfilled]: (state, { payload }) => {
-      state.data = [payload?.transaction, ...state.data];
+      state.expenses = [payload?.transaction, ...state.expenses];
       state.isLoading = false;
     },
     [expensePost.rejected]: (state, _) => {
@@ -35,8 +36,8 @@ const expenseSlice = createSlice({
 
     [expenseGet.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.data;
-      state.monthStats = payload.monthStats;
+      state.expenses = payload.expenses;
+      state.monthsStats = payload.monthsStats;
     },
 
     [expenseGet.rejected]: (state, _) => {
@@ -62,7 +63,7 @@ const expenseSlice = createSlice({
 
     [expenseDelete.fulfilled]: (state, { payload, meta }) => {
       state.isLoading = false;
-      state.data = state.data.filter(el => meta.arg !== el._id);
+      state.expenses = state.expenses.filter(el => meta.arg !== el._id);
     },
 
     [expenseDelete.rejected]: (state, _) => {

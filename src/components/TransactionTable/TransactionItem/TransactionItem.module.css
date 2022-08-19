@@ -22,7 +22,7 @@
   border-width: 2px;
   border-top: none;
   border-right: none;
-  border-left: none;
+  /* border-left: none; */
 }
 
 .Date {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logIn, signIn } from 'redux/auth/auth-operations';
+import { getRefresh, logIn, signIn } from 'redux/auth/auth-operations';
 import styles from './AuthForm.module.css';
 import Sprite from '../../images/sprite.svg';
 
@@ -69,6 +69,8 @@ export default function AuthForm() {
       return;
     }
     dispatch(signIn(credentials));
+    dispatch(logIn(credentials));
+    dispatch(getRefresh());
     navigate('/expenses');
   };
 
