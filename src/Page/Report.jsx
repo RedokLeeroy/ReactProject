@@ -10,9 +10,7 @@ const Report = () => {
         <BalanceLap />
         <ReportSummery />
         <ReporCategory />
-        <ChartController
-          categoryObject={{ bablo: 10000, total: 15000, vziatka: 5000 }}
-        />
+        <ChartController />
       </BackgroundLap>
     </>
   );
