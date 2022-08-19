@@ -2,26 +2,11 @@ import s from './SummaryTable.module.css';
 import { PropTypes } from 'prop-types';
 
 export const SummaryTable = ({ summaryData = {} }) => {
-  // const data = {
-  //   Январь: 5,
-  //   Февраль: 100,
-  //   Март: 'N/A',
-  //   Апрель: 'N/A',
-  //   Май: 1,
-  //   Июнь: 'N/A',
-  //   Июль: 3,
-  //   Август: 'N/A',
-  //   Сентябрь: 'N/A',
-  //   Октябрь: 77,
-  //   Ноябрь: 'N/A',
-  //   Декабрь: 123,
-  // };
-  const monthStats = Object.entries(summaryData);
+  const monthStats = Object.entries(summaryData).filter(
+    elem => elem[1] !== 'N/A'
+  );
 
-  const data = Object.entries(summaryData);
-
-  console.log(data.sort((a, b) => data.indexOf(b) - data.indexOf(a)));
-  console.log(data);
+  console.log(monthStats);
 
   return (
     <div className={s.Table}>

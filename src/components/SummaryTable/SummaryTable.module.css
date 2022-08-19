@@ -25,7 +25,7 @@
 .List {
   display: flex;
   flex-direction: column;
-  height: 342px;
+  max-height: 342px;
   overflow: scroll;
 }
 
@@ -43,6 +43,9 @@
 @media screen and (max-width: 1279px) {
   .Table {
     max-width: 230px;
+  }
+  .List {
+    max-height: 210px;
   }
 }
 @media screen and (max-width: 767px) {
