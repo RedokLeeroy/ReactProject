@@ -1,12 +1,9 @@
 .Table {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 213px;
-  padding: 0;
+
   background: #f5f6fb;
   border-radius: 16px 16px 16px 0;
-  list-style: none;
 
   font-weight: 400;
   font-size: 12px;
@@ -18,17 +15,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 38px;
   width: 100%;
   border-bottom: 2px solid #fff;
+  min-height: 38px;
 
   font-weight: 700;
 }
+
+.List {
+  display: flex;
+  flex-direction: column;
+  max-height: 342px;
+  overflow: scroll;
+}
+
 .Item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 38px;
+  min-height: 38px;
   padding: 0 12px;
 
   color: #52555f;
@@ -39,9 +44,16 @@
   .Table {
     max-width: 230px;
   }
+  .List {
+    max-height: 210px;
+  }
 }
 @media screen and (max-width: 767px) {
   .Table {
     display: none;
   }
+}
+
+.List::-webkit-scrollbar {
+  display: none;
 }

@@ -2,8 +2,17 @@ import s from './BalanceLap.module.css';
 import svg from '../../svgReport/svg-report.svg';
 import { Link, useLocation } from 'react-router-dom';
 import SliderDate from '../BalanceContainer/SliderDate/SliderDate';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { userGet } from 'redux/user/user-operations';
 export const BalanceLap = () => {
+  const dispatch = useDispatch();
   const { pathname: location } = useLocation();
+  const renderBalance = useSelector(state => state.balance);
+
+  useEffect(() => {
+    dispatch(userGet());
+  }, [dispatch]);
 
   return (
     <div className={s.section}>
@@ -20,7 +29,10 @@ export const BalanceLap = () => {
       <form className={s.form}>
         <label>
           Balance:
-          <input name="balance" placeholder="00.00 UAH" />
+          <input
+            name="balance"
+            placeholder={`${renderBalance.toFixed(2)} UAH`}
+          />
         </label>
         <button>confirm</button>
       </form>

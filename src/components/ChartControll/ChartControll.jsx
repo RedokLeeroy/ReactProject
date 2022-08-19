@@ -6,7 +6,6 @@ import styles from './ChartController.module.css';
 
 const ChartController = () => {
   const getCurrentBtn = useSelector(state => state.reportCurrentBtn);
-  console.log(getCurrentBtn[1]);
 
   const arr = Object.entries(getCurrentBtn[1]);
   // arr.shift();

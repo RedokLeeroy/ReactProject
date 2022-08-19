@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/auth-operations';
-// import { Link } from 'react-router-dom';
 import styles from './UserMenu.module.css';
 import Sprite from '../../images/sprite.svg';
 
@@ -15,6 +14,7 @@ const UserMenu = () => {
       <p className={styles.userName}>
         {userName || 'User Name'} <span className={styles.userLine}></span>
       </p>
+
       <button
         className={styles.userButton}
         type="button"

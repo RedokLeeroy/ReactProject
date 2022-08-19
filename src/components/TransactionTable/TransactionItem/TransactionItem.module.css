@@ -22,7 +22,6 @@
   border-width: 2px;
   border-top: none;
   border-right: none;
-  /* border-left: none; */
 }
 
 .Date {
@@ -30,6 +29,7 @@
 }
 .Category {
   grid-area: Category;
+  min-width: 120px;
 }
 
 .Description {
@@ -89,6 +89,7 @@
       'Description Description Sum Delete'
       'Date Category Sum Delete';
     justify-items: start;
+    border-left: none;
   }
   .Description {
     width: 100%;
