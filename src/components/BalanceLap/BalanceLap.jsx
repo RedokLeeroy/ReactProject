@@ -1,3 +1,5 @@
+import { useMediaQuery } from 'react-responsive';
+
 import s from './BalanceLap.module.css';
 import svg from '../../svgReport/svg-report.svg';
 import { Link, useLocation } from 'react-router-dom';
@@ -5,10 +7,14 @@ import SliderDate from '../BalanceContainer/SliderDate/SliderDate';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { userGet } from 'redux/user/user-operations';
+
 export const BalanceLap = () => {
   const dispatch = useDispatch();
   const { pathname: location } = useLocation();
   const renderBalance = useSelector(state => state.balance);
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  console.log(isTablet);
 
   useEffect(() => {
     dispatch(userGet());
@@ -16,25 +22,48 @@ export const BalanceLap = () => {
 
   return (
     <div className={s.section}>
-      <div className={s.back}>
-        {location === '/report' && (
-          <Link to="/expenses" className={s.backLink}>
-            <svg width={24} height={24}>
-              <use href={`${svg}#icon-back`}></use>
-            </svg>
-            Main page
-          </Link>
-        )}
-      </div>
+      {isTablet ? (
+        location === '/report' && (
+          <div className={s.back}>
+            {location === '/report' && (
+              <Link to="/expenses" className={s.backLink}>
+                <svg width={24} height={24}>
+                  <use href={`${svg}#icon-back`}></use>
+                </svg>
+                Main page
+              </Link>
+            )}
+          </div>
+        )
+      ) : (
+        <div className={s.back}>
+          {location === '/report' && (
+            <Link to="/expenses" className={s.backLink}>
+              <svg width={24} height={24}>
+                <use href={`${svg}#icon-back`}></use>
+              </svg>
+              {!isMobile && 'Main page'}
+            </Link>
+          )}
+        </div>
+      )}
+
       <form className={s.form}>
-        <label>
-          Balance:
-          <input
-            name="balance"
-            placeholder={`${renderBalance.toFixed(2)} UAH`}
-          />
-        </label>
-        <button>confirm</button>
+        {isMobile && <p>Balance:</p>}
+        <div>
+          <label>
+            {!isMobile && 'Balance:'}
+            <input
+              name="balance"
+              placeholder={`${renderBalance.toFixed(2)} UAH`}
+            />
+          </label>
+          {isTablet ? (
+            location !== '/report' && <button>confirm</button>
+          ) : (
+            <button>confirm</button>
+          )}
+        </div>
       </form>
       <div>
         {location === '/report' ? (

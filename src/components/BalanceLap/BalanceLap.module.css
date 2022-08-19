@@ -1,15 +1,21 @@
 .section {
+  position: relative;
   min-width: 270px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column-reverse;
   padding-top: 16px;
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
 }
 .back {
+  position: absolute;
+  top: 10px;
+  left: 0px;
   width: 100px;
+  /* min-height: 2px; */
 }
 .backLink {
   display: flex;
@@ -33,7 +39,12 @@
 .form {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
+.form p {
+  margin-bottom: 8px;
+}
+.form p,
 .form label {
   font-family: 'Roboto';
   font-style: normal;
@@ -46,11 +57,12 @@
 .form input {
   width: 125px;
   height: 44px;
-  margin-left: 20px;
-  margin-right: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
   background-color: transparent;
   border: 2px solid #fff;
-  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -85,7 +97,8 @@
   height: 44px;
   background-color: transparent;
   border: 2px solid #fff;
-  border-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -99,7 +112,9 @@
 .report {
   width: 160px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 19px;
 }
 .reportLink {
   display: flex;
@@ -165,6 +180,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
+
     padding-top: 40px;
 
     margin-left: auto;
@@ -172,6 +189,7 @@
     background-color: transparent;
   }
   .back {
+    position: static;
     width: 100px;
   }
   .back button {
@@ -196,7 +214,9 @@
   .form {
     display: flex;
     align-items: center;
+    flex-direction: row;
   }
+
   .form label {
     font-family: 'Roboto';
     font-style: normal;
@@ -263,6 +283,7 @@
     width: 160px;
     display: flex;
     justify-content: flex-end;
+    margin: 0;
   }
   .reportLink {
     display: flex;

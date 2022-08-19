@@ -162,7 +162,7 @@ const Chart = ({ labels, data, maxData }) => {
             grid: { offset: true, lineWidth: 0, borderColor: 'transparent' },
             stacked: true,
             ticks: {
-              display: false,
+              display: true,
             },
           },
         },
@@ -173,8 +173,8 @@ const Chart = ({ labels, data, maxData }) => {
   const barChart = (
     <Bar
       type="bar"
-      width={210}
-      height={100}
+      width={100}
+      height={45}
       options={{
         plugins: {
           legend: {
@@ -189,26 +189,26 @@ const Chart = ({ labels, data, maxData }) => {
               `${SpaceForTotalAmount(Math.floor(value)).split('.')[0]} грн`,
           },
         },
-
         scales: {
           legend: {
             display: false,
             position: 'bottom',
-          },
-
-          y: {
-            min: 0,
-            max: maxData,
-            stacked: true,
-            ticks: {
-              display: false,
-            },
           },
           x: {
             min: 0,
             max: maxData,
             grid: { lineWidth: 0 },
             stacked: true,
+          },
+          y: {
+            min: 0,
+            max: maxData,
+            stacked: true,
+            grid: { borderColor: 'transparent' },
+
+            ticks: {
+              display: false,
+            },
           },
         },
       }}
