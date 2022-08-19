@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRefresh } from 'redux/auth/auth-operations';
 import { PublicRoute } from './PublicRoute/PublicRoute';
-// import Modal from './Modal/Modal';
 
 export const App = () => {
   const dispatch = useDispatch();
