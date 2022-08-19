@@ -4,7 +4,7 @@ import styles from '../PageNotFound/PageNotFound.module.css';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getIsLoggedIn } from 'redux/auth/auth-slicer';
+import { getIsLoggedIn } from 'redux/auth/auth-selector';
 
 const PageNotFound = () => {
   const isLogin = useSelector(getIsLoggedIn);
