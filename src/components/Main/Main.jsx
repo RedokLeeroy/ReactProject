@@ -1,12 +1,12 @@
 import Button from 'components/common/button/button';
 import { SummaryTable } from 'components/SummaryTable/SummaryTable';
 import { TransactionTable } from 'components/TransactionTable/TransactionTable';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import s from './Main.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { expensePost } from 'redux/expense/expense-operations';
+import { expenseGet, expensePost } from 'redux/expense/expense-operations';
 import { NavLink, useLocation } from 'react-router-dom';
-import { incomePost } from 'redux/income/income-operations';
+import { incomePost, incomeGet } from 'redux/income/income-operations';
 import { Calendar } from 'components/Calendar/Calendar';
 export const Main = () => {
   const [description, setDescription] = useState('');
@@ -24,8 +24,20 @@ export const Main = () => {
   const incomesTransactionData = useSelector(({ income }) => income.incomes);
   const expensesSummaryData = useSelector(({ expense }) => expense.monthsStats);
   const incomesSummaryData = useSelector(({ income }) => income.monthsStats);
+  const balance = useSelector(({ balance }) => balance);
   const dispatch = useDispatch();
   const pageLocation = useLocation().pathname;
+
+  console.log(balance);
+
+  useEffect(() => {
+    if (pageLocation === '/expenses') {
+      dispatch(expenseGet());
+    }
+    if (pageLocation === '/income') {
+      dispatch(incomeGet());
+    }
+  }, [dispatch, balance, pageLocation]);
 
   let products;
   let transactionData;
