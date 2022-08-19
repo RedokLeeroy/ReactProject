@@ -1,17 +1,17 @@
 .module {
-  background-color: #ffffff;;
+  background-color: #ffffff;
   margin-top: 32px;
-  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
-margin-left: auto;
-margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width: 768px) {
   .module {
     padding-bottom: 20px;
     margin-top: 32px;
-        max-width: 1034px;
+    max-width: 1034px;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   }
 }
 
@@ -20,6 +20,5 @@ margin-right: auto;
     margin-bottom: 70px;
     margin-left: auto;
     margin-right: auto;
-   
   }
 }
