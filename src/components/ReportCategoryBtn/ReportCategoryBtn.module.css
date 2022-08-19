@@ -36,10 +36,21 @@
   position: absolute;
   fill: #071f41;
 }
+.btnIcoActive {
+  bottom: 0;
+  position: absolute;
+  fill: #ff751d;
+}
 .btnBg {
   width: 59px;
   height: 46px;
   background: #f5f6fb;
+  border-radius: 20px;
+}
+.btnBgActive {
+  width: 59px;
+  height: 46px;
+  background: #ffdac0;
   border-radius: 20px;
 }
 .categoryName {

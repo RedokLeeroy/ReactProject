@@ -1,19 +1,28 @@
+import { useSelector } from 'react-redux';
+
 import Chart from 'components/Chart/Chart';
 import { objectEntriesCompareDesc } from './compare';
-const ChartController = ({ categoryObject }) => {
-  const arr = Object.entries(categoryObject);
-  arr.shift();
-  const sortArr = arr.sort(objectEntriesCompareDesc);
+import styles from './ChartController.module.css';
+
+const ChartController = () => {
+  const getCurrentBtn = useSelector(state => state.reportCurrentBtn);
+  console.log(getCurrentBtn[1]);
+
+  const arr = Object.entries(getCurrentBtn[1]);
+  // arr.shift();
+  const newArr = arr.filter(el => el[0] !== 'total');
+  const sortArr = newArr.sort(objectEntriesCompareDesc);
+
   const labels = sortArr.map(el => el[0]);
   const data = sortArr.map(el => el[1]);
   const maxData = Math.max(...data) * 1.2;
 
   return (
-    <>
+    <div className={styles.module}>
       {sortArr.length !== 0 ? (
         <Chart data={data} labels={labels} maxData={maxData} />
       ) : null}
-    </>
+    </div>
   );
 };
 export default ChartController;

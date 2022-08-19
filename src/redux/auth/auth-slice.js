@@ -51,6 +51,9 @@ const authSlice = createSlice({
     },
     [getRefresh.rejected]: (state, { payload }) => {
       state.isLogin = false;
+      state.accessToken = null;
+      state.refreshToken = null;
+      state.sid = null;
     },
   },
 });
