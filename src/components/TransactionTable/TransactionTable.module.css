@@ -38,7 +38,7 @@ ul {
   display: flex;
   flex-direction: column;
   height: 342px;
-  max-height: 342px;
+  /* max-height: 342px; */
   background-image: url('images/TableGrid.png');
   overflow-y: scroll;
 }
