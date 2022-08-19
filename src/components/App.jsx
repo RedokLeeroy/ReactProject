@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { getRefresh } from 'redux/auth/auth-operations';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import Modal from './Modal/Modal';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -63,6 +64,7 @@ export const App = () => {
             /* </PrivateRoute> */
           }
         />
+        <Route path="modal" element={<Modal />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Route>
