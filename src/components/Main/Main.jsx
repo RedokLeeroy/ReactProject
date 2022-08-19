@@ -15,9 +15,6 @@ export const Main = () => {
   const dateNow = new Date();
   const [datePicker, setDatePicker] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
-
-  // const [products, setProducts] = useState([]);
-
   const prodExp = useSelector(({ expense }) => expense.categories);
   const prodInc = useSelector(({ income }) => income.categories);
   const expensesTransactionData = useSelector(
