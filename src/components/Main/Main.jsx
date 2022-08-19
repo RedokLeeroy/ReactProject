@@ -4,12 +4,9 @@ import { TransactionTable } from 'components/TransactionTable/TransactionTable';
 import { useState } from 'react';
 import s from './Main.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import {
-  expenseCategories,
-  expensePost,
-} from 'redux/expense/expense-operations';
-
+import { expensePost } from 'redux/expense/expense-operations';
+import { NavLink, useLocation } from 'react-router-dom';
+import { incomePost } from 'redux/income/income-operations';
 export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -20,15 +17,34 @@ export const Main = () => {
   const [date, setDate] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
   // const [products, setProducts] = useState([]);
-  const products = useSelector(state => state.expense.categories);
-  const isLogin = useSelector(state => state.auth.isLogin);
+
+  const prodExp = useSelector(({ expense }) => expense.categories);
+  const prodInc = useSelector(({ income }) => income.categories);
+  const expensesTransactionData = useSelector(
+    ({ expense }) => expense.expenses
+  );
+  const incomesTransactionData = useSelector(({ income }) => income.incomes);
+  const expensesSummaryData = useSelector(({ expense }) => expense.monthsStats);
+  const incomesSummaryData = useSelector(({ income }) => income.monthsStats);
+  // const isLogin = useSelector(state => state.auth.isLogin);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (isLogin) {
-      dispatch(expenseCategories());
-    }
-  }, [dispatch, isLogin]);
+  const params = useLocation().pathname;
+
+  let products;
+  let transactionData;
+  let summaryData;
+
+  if (params === '/expenses') {
+    products = prodExp;
+    transactionData = expensesTransactionData;
+    summaryData = expensesSummaryData;
+  }
+  if (params === '/income') {
+    products = prodInc;
+    transactionData = incomesTransactionData;
+    summaryData = incomesSummaryData;
+  }
 
   const handleChangeForm = evt => {
     const { value, name } = evt.target;
@@ -64,8 +80,14 @@ export const Main = () => {
       date: date.slice(0, 10),
       category: category,
     };
-    console.log('submit:', items);
-    dispatch(expensePost(items));
+
+    if (params === '/expenses') {
+      dispatch(expensePost(items));
+    }
+    if (params === '/income') {
+      dispatch(incomePost(items));
+    }
+
     handleResetForm();
   };
 
@@ -75,8 +97,26 @@ export const Main = () => {
 
   return (
     <div className={s.container}>
-      <button className={s.btnAccent}>EXPENSES</button>
-      <button className={s.btn}>INCOME</button>
+      <nav>
+        <NavLink
+          to="/expenses"
+          className={({ isActive }) =>
+            s.btn + (isActive ? ' ' + s.btnAccent : '')
+          }
+        >
+          EXPENSES
+        </NavLink>
+        <NavLink
+          to="/income"
+          className={({ isActive }) =>
+            s.btn + (isActive ? ' ' + s.btnAccent : '')
+          }
+        >
+          INCOME
+        </NavLink>
+      </nav>
+      {/* <button className={s.btnAccent}>EXPENSES</button>
+      <button className={s.btn}>INCOME</button> */}
       <div className={s.contentContainer}>
         <div className={s.formContainer}>
           <form className={s.form} onSubmit={handleSubmitForm}>
@@ -153,12 +193,12 @@ export const Main = () => {
         <div className={s.tableContainer}>
           <div className={s.prods}>
             <TransactionTable
-            // transactionData={transactionItem}
-            // tablePage={'expenses'}
+              transactionData={transactionData}
+              tablePage={params}
             />
           </div>
           <div className={s.sumary}>
-            <SummaryTable />
+            <SummaryTable summaryData={summaryData} />
           </div>
         </div>
       </div>

@@ -1,23 +1,20 @@
 import s from './BalanceLap.module.css';
 import svg from '../../svgReport/svg-report.svg';
 import { Link, useLocation } from 'react-router-dom';
-import { getPeriodData } from 'redux/currentPeriod/currentPeriodOperation';
 import SliderDate from '../BalanceContainer/SliderDate/SliderDate';
 export const BalanceLap = () => {
   const { pathname: location } = useLocation();
-  const test = getPeriodData();
-  console.log(test);
 
   return (
     <div className={s.section}>
       <div className={s.back}>
         {location === '/report' && (
-          <button>
+          <Link to="/expenses" className={s.backLink}>
             <svg width={24} height={24}>
               <use href={`${svg}#icon-back`}></use>
             </svg>
             Main page
-          </button>
+          </Link>
         )}
       </div>
       <form className={s.form}>

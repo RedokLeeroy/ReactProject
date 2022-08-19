@@ -1,109 +1,21 @@
-// import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { TransactionItem } from './TransactionItem/TransactionItem';
 import s from './TransactionTable.module.css';
+import { expenseDelete } from 'redux/expense/expense-operations';
+import { incomeDelete } from 'redux/income/income-operations';
+import { PropTypes } from 'prop-types';
 
-const transactionItem = [
-  {
-    data: '05.09.2019',
-    description: 'bananas',
-    category: 'Prodact',
-    sum: 112.5,
-    _id: '507f1f77bcf86cd799439011',
-  },
-  {
-    data: '05.09.2019',
-    description: 'bananas',
-    category: 'Prodact',
-    sum: 20,
-    _id: '507f1f77bcsf86cd799439011',
-  },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Prodact',
-  //   sum: 30,
-  //   _id: '507f1fa77bcf86cd799439011',
-  // },
-];
+export const TransactionTable = ({ tablePage, transactionData }) => {
+  const dispatch = useDispatch();
 
-export const TransactionTable = () => {
-  const tablePage = 'expenses';
-  // const tablePage = 'income';
-
-  // const income = useParams();
-  // console.log(income);
-
-  const hendelDelete = id => console.log(id);
+  const hendelDelete = id => {
+    if (tablePage === '/expenses') {
+      dispatch(expenseDelete(id));
+    }
+    if (tablePage === '/income') {
+      dispatch(incomeDelete(id));
+    }
+  };
 
   return (
     <ul className={s.Table}>
@@ -117,7 +29,7 @@ export const TransactionTable = () => {
         </ul>
       </li>
       <li className={s.Tbody}>
-        {transactionItem.map(elem => {
+        {transactionData?.map(elem => {
           return (
             <TransactionItem
               key={elem._id}
@@ -130,4 +42,9 @@ export const TransactionTable = () => {
       </li>
     </ul>
   );
+};
+
+TransactionTable.propTypes = {
+  tablePage: PropTypes.string,
+  transactionData: PropTypes.arrayOf(PropTypes.object),
 };

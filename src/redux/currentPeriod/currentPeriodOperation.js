@@ -12,27 +12,25 @@ axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
 //   },
 // };
 
-
- export const getTransactionPeriodData = date =>
+export const getTransactionPeriodData = date =>
   axios.get(`/transaction/period-data?date=${date}`);
 
 const getPeriodData = createAsyncThunk(
   'currentPeriod/getPeriodData',
   async (date, thunkAPI) => {
-
     // const persistToken = thunkAPI.getState();
     // const accessToken = persistToken.auth.accessToken;
     // token.set(accessToken)
 
     try {
       const { data } = await getTransactionPeriodData(date);
-      console.log(data)
-      
+      // console.log(data)
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue('Something wrong :(');
     }
-  },
+  }
 );
 
 export { getPeriodData };
