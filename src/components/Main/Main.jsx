@@ -6,7 +6,7 @@ import s from './Main.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { expenseGet, expensePost } from 'redux/expense/expense-operations';
 import { NavLink, useLocation } from 'react-router-dom';
-import { incomePost } from 'redux/income/income-operations';
+import { incomePost, incomeGet } from 'redux/income/income-operations';
 import { Calendar } from 'components/Calendar/Calendar';
 export const Main = () => {
   const [description, setDescription] = useState('');
@@ -31,8 +31,13 @@ export const Main = () => {
   console.log(balance);
 
   useEffect(() => {
-    dispatch(expenseGet());
-  }, [dispatch, balance]);
+    if (pageLocation === '/expenses') {
+      dispatch(expenseGet());
+    }
+    if (pageLocation === '/income') {
+      dispatch(incomeGet());
+    }
+  }, [dispatch, balance, pageLocation]);
 
   let products;
   let transactionData;
