@@ -87,6 +87,12 @@ export const Main = () => {
     setList(!list);
   };
 
+  const handleCloseByDrope = evt => {
+    if (evt.target === evt.currentTarget) {
+      setList(!list);
+    }
+  };
+
   return (
     <div className={s.container}>
       <nav>
@@ -132,23 +138,27 @@ export const Main = () => {
                 ) : (
                   <p style={{ color: '#c7ccdc' }}>Product category</p>
                 )}
+                <span className={s.role}>&#129171;</span>
               </button>
               {list && (
-                <ul className={s.listCategory}>
-                  {products.map((el, ind) => (
-                    <li
-                      value={el}
-                      key={ind}
-                      className={s.itemCategory}
-                      onClick={() => {
-                        setCategory(el);
-                        handleIsListTogle();
-                      }}
-                    >
-                      {el}
-                    </li>
-                  ))}
-                </ul>
+                <>
+                  <div className={s.overlay} onClick={handleCloseByDrope}></div>
+                  <ul className={s.listCategory}>
+                    {products.map((el, ind) => (
+                      <li
+                        value={el}
+                        key={ind}
+                        className={s.itemCategory}
+                        onClick={() => {
+                          setCategory(el);
+                          handleIsListTogle();
+                        }}
+                      >
+                        {el}
+                      </li>
+                    ))}
+                  </ul>
+                </>
               )}
             </div>
 
