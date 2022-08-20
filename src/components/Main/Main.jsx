@@ -37,8 +37,6 @@ export const Main = () => {
   const dispatch = useDispatch();
   const pageLocation = useLocation().pathname;
 
-  console.log(balance);
-
   useEffect(() => {
     if (pageLocation === '/expenses') {
       dispatch(expenseGet());

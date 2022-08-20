@@ -22,7 +22,9 @@ export const ReporCategory = () => {
   };
   useEffect(() => {
     dispatch(
-      currentBtnAction(Object.entries(currentBtn ? getExpList : getIncList)[0])
+      currentBtnAction(
+        Object.entries(currentBtn ? getExpList : getIncList)[0] || [1, 1]
+      )
     );
   }, [getExpList, getIncList, currentBtn, dispatch]);
 

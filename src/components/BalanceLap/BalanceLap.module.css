@@ -173,6 +173,28 @@
 
   color: #000000;
 }
+.message {
+  z-index: 100;
+  position: absolute;
+  top: 125px;
+  /* center: 0%; */
+  padding: 40px 15px 5px 15px;
+  width: 288px;
+  min-height: 163px;
+  background-image: url(../../svgReport/message-bg.png);
+  background-position: top -45px left -55px;
+  background-repeat: no-repeat;
+  background-size: 400px 270px;
+}
+.message p {
+  margin-bottom: 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
 /* ---- */
 @media screen and (min-width: 768px) {
   .section {
@@ -325,6 +347,19 @@
 
     color: #000000;
   }
+  .message {
+    z-index: 100;
+    position: absolute;
+    top: 75px;
+    left: 80px;
+    padding: 40px 15px 5px 15px;
+    width: 288px;
+    min-height: 163px;
+    background-image: url(../../svgReport/message-bg.png);
+    background-position: top -45px left -55px;
+    background-repeat: no-repeat;
+    background-size: 400px 270px;
+  }
 }
 @media screen and (min-width: 1200px) {
   .section {
@@ -469,5 +504,18 @@
     text-transform: uppercase;
 
     color: #000000;
+  }
+  .message {
+    z-index: 100;
+    position: absolute;
+    top: 70px;
+    left: 400px;
+    padding: 40px 15px 5px 15px;
+    width: 288px;
+    min-height: 163px;
+    background-image: url(../../svgReport/message-bg.png);
+    background-position: top -45px left -55px;
+    background-repeat: no-repeat;
+    background-size: 400px 270px;
   }
 }
