@@ -45,20 +45,18 @@
   .btnAccent {
     height: 40px;
     width: 50%;
-    border-radius: 0;
-    background-color: transparent;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .btn {
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 }
 
 .btnAccent {
   color: #ff751d;
   background-color: #fefefe;
-}
-
-@media screen and (max-width: 768px) {
-  .btnAccent {
-    background-color: transparent;
-  }
 }
 
 .contentContainer {
