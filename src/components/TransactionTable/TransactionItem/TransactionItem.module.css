@@ -1,6 +1,5 @@
 .Line {
   display: grid;
-  /* grid-template-columns: 100px 1fr 147px 147px 100px; */
   grid-template-columns: 1fr 2.6fr 1.5fr 1.5fr 0.8fr;
   grid-template-areas: 'Date Description Category Sum Delete';
 
@@ -54,7 +53,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .ExpensesSum {
