@@ -9,6 +9,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { incomePost, incomeGet } from 'redux/income/income-operations';
 import { Calendar } from 'components/Calendar/Calendar';
 import { Calculator } from 'components/Calculator/Calculator';
+import { Loader } from 'components/Loader/Loader';
+
 export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -18,6 +20,10 @@ export const Main = () => {
   const [list, setList] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [emptyInput, setEmptyInput] = useState(false);
+
+  const loadingExpense = useSelector(state => state.expense.isLoading);
+  const loadingIncome = useSelector(state => state.income.isLoading);
+  let loading = loadingExpense === true || loadingIncome === true;
 
   const prodExp = useSelector(({ expense }) => expense.categories);
   const prodInc = useSelector(({ income }) => income.categories);
@@ -149,100 +155,118 @@ export const Main = () => {
           INCOME
         </NavLink>
       </nav>
+
       <div className={s.contentContainer}>
-        <div className={s.formContainer}>
-          <div className={s.calendar}>
-            <Calendar
-              setDate={setDate}
-              startDate={startDate}
-              setStartDate={setStartDate}
-            />
-          </div>
-          <form className={s.form} onSubmit={handleSubmitForm}>
-            <input
-              className={s.inputDescription}
-              placeholder="Product description"
-              autoComplete="off"
-              type="text"
-              name="description"
-              value={description}
-              onChange={handleChangeForm}
-            />
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <div className={s.formContainer}>
+              <div className={s.calendar}>
+                <Calendar
+                  setDate={setDate}
+                  startDate={startDate}
+                  setStartDate={setStartDate}
+                />
+              </div>
+              <form className={s.form} onSubmit={handleSubmitForm}>
+                <input
+                  className={s.inputDescription}
+                  placeholder="Product description"
+                  autoComplete="off"
+                  type="text"
+                  name="description"
+                  value={description}
+                  onChange={handleChangeForm}
+                />
 
-            <div className={s.inputCategoryContainer}>
-              <button
-                className={s.inputCategory}
-                onClick={handleIsListTogle}
-                type="button"
-              >
-                {category ? (
-                  <p style={{ color: '#52555F' }}>{category}</p>
-                ) : (
-                  <p style={{ color: '#c7ccdc' }}>Product category</p>
-                )}
-                <span className={s.arrow}>&#129171;</span>
-              </button>
-              {list && (
-                <>
-                  <div className={s.overlay} onClick={handleCloseByDrope}></div>
-                  <ul className={s.listCategory}>
-                    {products.map((el, ind) => (
-                      <li
-                        value={el}
-                        key={ind}
-                        className={s.itemCategory}
-                        onClick={() => {
-                          setCategory(el);
-                          handleIsListTogle();
-                        }}
-                      >
-                        {el}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
+                <div className={s.inputCategoryContainer}>
+                  <button
+                    className={s.inputCategory}
+                    onClick={handleIsListTogle}
+                    type="button"
+                  >
+                    {category ? (
+                      <p style={{ color: '#52555F' }}>{category}</p>
+                    ) : (
+                      <p style={{ color: '#c7ccdc' }}>Product category</p>
+                    )}
+                    <span className={s.arrow}>&#129171;</span>
+                  </button>
+                  {list && (
+                    <>
+                      <div
+                        className={s.overlay}
+                        onClick={handleCloseByDrope}
+                      ></div>
+                      <ul className={s.listCategory}>
+                        {products.map((el, ind) => (
+                          <li
+                            value={el}
+                            key={ind}
+                            className={s.itemCategory}
+                            onClick={() => {
+                              setCategory(el);
+                              handleIsListTogle();
+                            }}
+                          >
+                            {el}
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
+                <div className={s.errContainer}>
+                  <p className={s.errDescriptionMsg}>
+                    {!description && emptyInput && 'Enter description!'}
+                  </p>
+                  <p className={s.errCategoryMsg}>
+                    {!category && emptyInput && 'Select category!'}
+                  </p>
+                  <p className={s.errSummMsg}>
+                    {!sum && emptyInput && 'Enter sum!'}
+                  </p>
+                </div>
+                <div className={s.inputSummContainer}>
+                  <input
+                    className={s.inputSumm}
+                    placeholder="0,00"
+                    type="number"
+                    name="sum"
+                    value={sum}
+                    onChange={handleChangeForm}
+                  />
+                  <Calculator />
+                </div>
+              </form>
+              <div className={s.buttonContainer}>
+                <Button
+                  text={'INPUT'}
+                  type={'submit'}
+                  onClick={handleSubmitForm}
+                />
+                <Button
+                  text={'CLEAR'}
+                  type={'button'}
+                  onClick={handleResetForm}
+                />
+              </div>
             </div>
-            <div className={s.errContainer}>
-              <p className={s.errDescriptionMsg}>
-                {!description && emptyInput && 'Enter description!'}
-              </p>
-              <p className={s.errCategoryMsg}>
-                {!category && emptyInput && 'Select category!'}
-              </p>
-              <p className={s.errSummMsg}>
-                {!sum && emptyInput && 'Enter sum!'}
-              </p>
-            </div>
-            <div className={s.inputSummContainer}>
-              <input
-                className={s.inputSumm}
-                placeholder="0,00"
-                type="number"
-                name="sum"
-                value={sum}
-                onChange={handleChangeForm}
-              />
-              <Calculator />
-            </div>
-          </form>
-          <div className={s.buttonContainer}>
-            <Button text={'INPUT'} type={'submit'} onClick={handleSubmitForm} />
-            <Button text={'CLEAR'} type={'button'} onClick={handleResetForm} />
-          </div>
-        </div>
 
-        <div className={s.tableContainer}>
-          <div className={s.prods}>
-            <TransactionTable
-              transactionData={transactionData}
-              tablePage={pageLocation}
-            />
-          </div>
-          <div className={s.sumary}>
-            <SummaryTable summaryData={summaryData} />
-          </div>
-        </div>
+            <div className={s.tableContainer}>
+              <div className={s.prods}>
+                <TransactionTable
+                  transactionData={transactionData}
+                  tablePage={pageLocation}
+                />
+              </div>
+              <div className={s.sumary}>
+                <SummaryTable summaryData={summaryData} />
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
