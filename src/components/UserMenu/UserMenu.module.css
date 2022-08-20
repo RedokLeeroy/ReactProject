@@ -88,9 +88,19 @@
   }
 
   .logoutIcon {
-    margin-left: 16px;
     transition: all 0.3s;
     fill: #cbccd0;
+  }
+
+  .iconButton {
+    margin-left: 16px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
 
   .logoutIcon:hover,
