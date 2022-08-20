@@ -6,8 +6,6 @@ export const SummaryTable = ({ summaryData = {} }) => {
     elem => elem[1] !== 'N/A'
   );
 
-  console.log(monthStats);
-
   return (
     <div className={s.Table}>
       <p className={s.Title}>Summary</p>

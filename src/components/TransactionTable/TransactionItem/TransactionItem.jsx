@@ -1,3 +1,4 @@
+import DeleteButton from 'components/common/button-delete/button-delete';
 import PropTypes from 'prop-types';
 import s from './TransactionItem.module.css';
 
@@ -19,13 +20,7 @@ export const TransactionItem = ({
         <li className={s.IncomeSum}>{`${amount} грн.`}</li>
       )}
       <li className={s.Delete}>
-        <button
-          type="button"
-          onClick={() => hendelDelete(_id)}
-          className={s.DelBTN}
-        >
-          del
-        </button>
+        <DeleteButton onClick={() => hendelDelete(_id)} />
       </li>
     </ul>
   );
