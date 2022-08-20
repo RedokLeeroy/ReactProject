@@ -54,7 +54,7 @@ export const Calendar = ({ startDate, setStartDate, setDate }) => {
         selected={startDate}
         onChange={date => {
           setStartDate(date);
-          setDate(date);
+          // setDate(date);
         }}
         customInput={<ExampleCustomInput />}
       />
