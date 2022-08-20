@@ -23,12 +23,13 @@ const UserMenu = () => {
         Exit
       </button>
 
+      <button className={styles.iconButton}  type="button" onClick={() => dispatch(logOut())}> 
       <svg className={styles.logoutIcon} width={16} height={16}>
         <use
           href={`${Sprite}#icon-logout`}
-          onClick={() => dispatch(logOut())}
         ></use>
       </svg>
+      </button>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import ChartJS from 'chart.js/auto';
 import Media from 'react-media';
 import styles from './Chart.module.css';
-import { Arrgenerator } from './utils/Arrgenerator';
+// import { Arrgenerator } from './utils/Arrgenerator';
 import SpaceForTotalAmount from './utils/SpaceForTotalAmount';
 
 ChartJS.register(ChartDataLabels);
@@ -39,7 +39,7 @@ const Chart = ({ labels, data, maxData }) => {
 
     datasets: [
       {
-        data: Arrgenerator(180, labels.length),
+        // data: Arrgenerator(180, labels.length),
 
         datalabels: {
           display: function (context) {
@@ -64,11 +64,11 @@ const Chart = ({ labels, data, maxData }) => {
           barPercentage: 0.5,
           categoryPercentage: 1,
 
-          formatter: (_, context) => {
-            const labels = context.chart.data.labels[context.dataIndex];
+          // formatter: (_, context) => {
+          //   const labels = context.chart.data.labels[context.dataIndex];
 
-            return labels;
-          },
+          //   return labels;
+          // },
         },
         barPercentage: 1,
         barThickness: 15,
@@ -105,7 +105,7 @@ const Chart = ({ labels, data, maxData }) => {
           formatter: value => {
             return `${
               SpaceForTotalAmount(Math.floor(value)).split('.')[0]
-            } грн`;
+            } UAH`;
           },
         },
 
