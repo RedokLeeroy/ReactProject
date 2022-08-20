@@ -3,18 +3,8 @@ import styles from '../Calculator/Calculator.module.css';
 export const Calculator = () => {
   return (
     <div className={styles.container}>
-      <input
-        aria-label="Number"
-        // onChange={handleChange}
-        type="number"
-        name="amount"
-        className={styles.inputCount}
-        placeholder="00.00"
-        // value={amount}
-      />
-
       <svg
-      className={styles.svgCalc}
+        className={styles.svgCalc}
         width="20"
         height="20"
         viewBox="0 0 20 20"

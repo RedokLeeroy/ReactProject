@@ -18,7 +18,6 @@
 @media screen and (max-width: 768px) {
   .calendar {
     display: none;
-
     border-radius: 0;
   }
 }
@@ -46,14 +45,20 @@
   .btnAccent {
     height: 40px;
     width: 50%;
-
     border-radius: 0;
+    background-color: transparent;
   }
 }
 
 .btnAccent {
   color: #ff751d;
   background-color: #fefefe;
+}
+
+@media screen and (max-width: 768px) {
+  .btnAccent {
+    background-color: transparent;
+  }
 }
 
 .contentContainer {
@@ -73,6 +78,7 @@
     padding: 0;
     box-shadow: none;
     border-radius: 0;
+    background-color: transparent;
   }
 }
 
@@ -96,6 +102,7 @@
 @media screen and (max-width: 768px) {
   .formContainer {
     flex-direction: column;
+    background-color: transparent;
   }
 }
 
@@ -113,10 +120,7 @@
   .form {
     flex-direction: column;
     margin-bottom: 40px;
-    background-color: #f5f6fb;
-    border-bottom-left-radius: 100px;
-    padding-right: 20px;
-    padding-left: 20px;
+    background-color: transparent;
   }
 }
 
@@ -210,7 +214,7 @@
   }
 }
 
-.role {
+.arrow {
   position: absolute;
   top: 50%;
   right: 20px;
@@ -249,7 +253,10 @@
   background-color: #f5f6fb;
 }
 
-.inputSumm {
+.inputSummContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
   font-size: 12px;
   color: #52555f;
   font-weight: 400;
@@ -264,8 +271,28 @@
   margin-right: 32px;
 }
 
+.inputSumm {
+  font-size: 12px;
+  color: #52555f;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  margin-right: 32px;
+  max-width: 70%;
+  background-color: transparent;
+}
+
+.inputSumm:focus {
+  outline: none;
+}
+
+.inputSumm::-webkit-outer-spin-button,
+.inputSumm::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 @media screen and (max-width: 768px) {
-  .inputSumm {
+  .inputSummContainer {
     margin: 0 auto;
     margin-top: 32px;
     margin-bottom: 40px;
@@ -342,6 +369,90 @@
 @media screen and (max-width: 768px) {
   .sumary {
     display: none;
+  }
+}
+
+.errContainer {
+  position: absolute;
+  top: 0;
+  width: 600px;
+  /* outline: 1px solid rgb(9, 198, 28); */
+}
+
+@media screen and (max-width: 1280px) {
+  .errContainer {
+    width: 430px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .errContainer {
+    width: 100%;
+  }
+}
+
+.errDescriptionMsg {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  top: 78px;
+  right: 486px;
+}
+
+@media screen and (max-width: 1280px) {
+  .errDescriptionMsg {
+    right: 316px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .errDescriptionMsg {
+    top: 16px;
+    right: 35px;
+  }
+}
+
+.errCategoryMsg {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  top: 78px;
+  right: 207px;
+}
+
+@media screen and (max-width: 1280px) {
+  .errCategoryMsg {
+    right: 141px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .errCategoryMsg {
+    top: 59px;
+    right: 35px;
+    /* right: 35px; */
+  }
+}
+
+.errSummMsg {
+  position: absolute;
+  display: block;
+  color: red;
+  font-size: 12px;
+  top: 78px;
+  left: 477px;
+}
+
+@media screen and (max-width: 1280px) {
+  .errSummMsg {
+    left: 370px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .errSummMsg {
+    top: 164px;
+    left: 50%;
+    transform: translateX(-75%);
   }
 }
 

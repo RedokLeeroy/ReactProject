@@ -8,6 +8,7 @@ import { expenseGet, expensePost } from 'redux/expense/expense-operations';
 import { NavLink, useLocation } from 'react-router-dom';
 import { incomePost, incomeGet } from 'redux/income/income-operations';
 import { Calendar } from 'components/Calendar/Calendar';
+import { Calculator } from 'components/Calculator/Calculator';
 export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -16,6 +17,8 @@ export const Main = () => {
   const [datePicker, setDatePicker] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [emptyInput, setEmptyInput] = useState(false);
+
   const prodExp = useSelector(({ expense }) => expense.categories);
   const prodInc = useSelector(({ income }) => income.categories);
   const expensesTransactionData = useSelector(
@@ -72,6 +75,7 @@ export const Main = () => {
   };
 
   const handleResetForm = () => {
+    setEmptyInput(false);
     setDescription('');
     setCategory('');
     setSum('');
@@ -80,6 +84,20 @@ export const Main = () => {
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
+
+    if (!description) {
+      setEmptyInput(true);
+      return;
+    }
+    if (!category) {
+      setEmptyInput(true);
+      return;
+    }
+    if (!sum) {
+      setEmptyInput(true);
+      return;
+    }
+
     const items = {
       description: description,
       amount: Number(sum),
@@ -144,11 +162,13 @@ export const Main = () => {
             <input
               className={s.inputDescription}
               placeholder="Product description"
+              autoComplete="off"
               type="text"
               name="description"
               value={description}
               onChange={handleChangeForm}
             />
+
             <div className={s.inputCategoryContainer}>
               <button
                 className={s.inputCategory}
@@ -160,7 +180,7 @@ export const Main = () => {
                 ) : (
                   <p style={{ color: '#c7ccdc' }}>Product category</p>
                 )}
-                <span className={s.role}>&#129171;</span>
+                <span className={s.arrow}>&#129171;</span>
               </button>
               {list && (
                 <>
@@ -183,19 +203,32 @@ export const Main = () => {
                 </>
               )}
             </div>
-
-            <input
-              className={s.inputSumm}
-              placeholder="0,00"
-              type="number"
-              name="sum"
-              value={sum}
-              onChange={handleChangeForm}
-            />
+            <div className={s.errContainer}>
+              <p className={s.errDescriptionMsg}>
+                {!description && emptyInput && 'Enter description!'}
+              </p>
+              <p className={s.errCategoryMsg}>
+                {!category && emptyInput && 'Select category!'}
+              </p>
+              <p className={s.errSummMsg}>
+                {!sum && emptyInput && 'Enter sum!'}
+              </p>
+            </div>
+            <div className={s.inputSummContainer}>
+              <input
+                className={s.inputSumm}
+                placeholder="0,00"
+                type="number"
+                name="sum"
+                value={sum}
+                onChange={handleChangeForm}
+              />
+              <Calculator />
+            </div>
           </form>
           <div className={s.buttonContainer}>
             <Button text={'INPUT'} type={'submit'} onClick={handleSubmitForm} />
-            <Button text={'CLEAR'} onClick={handleResetForm} />
+            <Button text={'CLEAR'} type={'button'} onClick={handleResetForm} />
           </div>
         </div>
 
