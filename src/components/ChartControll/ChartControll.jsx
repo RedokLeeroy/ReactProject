@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 
 import Chart from 'components/Chart/Chart';
 import { objectEntriesCompareDesc } from './compare';
-import styles from './ChartController.module.css';
 
 const ChartController = () => {
   const getCurrentBtn = useSelector(state => state.reportCurrentBtn);
@@ -17,11 +16,11 @@ const ChartController = () => {
   const maxData = Math.max(...data) * 1.2;
 
   return (
-    <div className={styles.module}>
+    <>
       {sortArr.length !== 0 ? (
         <Chart data={data} labels={labels} maxData={maxData} />
       ) : null}
-    </div>
+    </>
   );
 };
 export default ChartController;

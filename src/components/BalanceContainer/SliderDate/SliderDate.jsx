@@ -15,7 +15,6 @@ import { ReactComponent as LeftArrow } from '../../../images/left-arrow.svg';
 import { ReactComponent as RightArrow } from '../../../images/right-arrow.svg';
 import s from './SliderDate.module.css';
 
-const btnBack = true;
 const months = {
   1: 'январь',
   2: 'февраль',
@@ -52,22 +51,16 @@ const SliderDate = props => {
   }, [dispatch, month, year, token]);
 
   return (
-    <div className={s.baseContainer}>
-      <div
-        className={btnBack ? s.sliderContainerWithBtnBack : s.sliderContainer}
-      >
-        <p className={s.textSlider}>Current period:</p>
-        <div className={s.baseContainer}>
-          <button onClick={onClickRight} className={s.btn}>
-            <RightArrow />
-          </button>
-          <strong
-            className={s.nameContainer}
-          >{`${months[month]} ${year}`}</strong>
-          <button onClick={onClickLeft} className={s.btn}>
-            <LeftArrow />
-          </button>
-        </div>
+    <div className={s.box}>
+      <p className={s.textSlider}>Current period:</p>
+      <div className={s.baseContainer}>
+        <button onClick={onClickRight} className={s.btn}>
+          <RightArrow />
+        </button>
+        <p className={s.nameContainer}>{`${months[month]} ${year}`}</p>
+        <button onClick={onClickLeft} className={s.btn}>
+          <LeftArrow />
+        </button>
       </div>
     </div>
   );
