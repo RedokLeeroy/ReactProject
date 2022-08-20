@@ -1,12 +1,29 @@
 import { API } from 'API';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 export const expensePost = createAsyncThunk(
   'transaction/expensePost',
   async expenseObj => {
-    const { data } = await API.post('transaction/expense', expenseObj);
-    // console.log('~ data', data);
-    return data;
+    try {
+      const { data } = await API.post('transaction/expense', expenseObj);
+      toast.success('Item was successfuly created');
+      return data;
+    } catch (error) {
+      switch (error.response.status) {
+        case 401:
+          toast.error('Unauthorized');
+          break;
+
+        case 404:
+          toast.error('Invalid user');
+          break;
+
+        default:
+          break;
+      }
+    }
+    // console.log('~ data', data)
   }
 );
 
@@ -29,7 +46,23 @@ export const expenseCategories = createAsyncThunk(
 export const expenseDelete = createAsyncThunk(
   'transaction/deleteAction',
   async transactionId => {
-    const { data } = await API.delete(`transaction/${transactionId}`);
-    return data;
+    try {
+      const { data } = await API.delete(`transaction/${transactionId}`);
+      toast.success('Item was successfuly deleted');
+      return data;
+    } catch (error) {
+      switch (error.response.status) {
+        case 401:
+          toast.error('Unauthorized');
+          break;
+
+        case 404:
+          toast.error('Invalid user');
+          break;
+
+        default:
+          break;
+      }
+    }
   }
 );
