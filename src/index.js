@@ -10,7 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate loading={<div>...loading</div>} persistor={persistor}>
-      <BrowserRouter basename="/react-homework-template">
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </PersistGate>
