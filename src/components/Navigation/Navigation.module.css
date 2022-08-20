@@ -13,6 +13,16 @@
   background-color: #fff;
 }
 
+.headerButton {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   .headerContainer {
     min-width: 768px;
