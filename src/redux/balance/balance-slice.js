@@ -18,7 +18,7 @@ const balanceSlice = createSlice({
     },
 
     [userBalancePatch.fulfilled]: (state, { payload }) => {
-      return payload;
+      return payload.newBalance;
     },
 
     [incomeDelete.fulfilled]: (state, { payload }) => {

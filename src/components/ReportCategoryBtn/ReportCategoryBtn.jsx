@@ -23,7 +23,7 @@ export const ReportCategoryBtn = ({ data }) => {
 
   return (
     <li className={s.categryItem}>
-      <p className={s.categorySum}>{data[1].total}</p>
+      <p className={s.categorySum}>{data[1].total.toFixed(2)}</p>
       <button className={s.btn} type="button" onClick={handleActiveBtn}>
         <svg
           className={activeBtn ? s.btnIcoActive : s.btnIco}

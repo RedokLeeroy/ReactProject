@@ -14,12 +14,12 @@ export const ReportSummery = () => {
       <div className={s.line}>
         <div className={s.summaryExp}>
           <p className={s.sumName}>Expenses:</p>
-          <p className={s.sumRed}>{`- ${grtExpenseTotal} грн.`}</p>
+          <p className={s.sumRed}>{`- ${grtExpenseTotal.toFixed(2)} грн.`}</p>
         </div>
       </div>
       <div className={s.summaryInc}>
         <p className={s.sumName}>Income:</p>
-        <p className={s.sumGreen}>{`+ ${grtIncomesTotal} грн.`}</p>
+        <p className={s.sumGreen}>{`+ ${grtIncomesTotal.toFixed(2)} грн.`}</p>
       </div>
     </div>
   );

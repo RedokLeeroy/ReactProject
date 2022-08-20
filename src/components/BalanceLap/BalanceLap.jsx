@@ -7,19 +7,35 @@ import SliderDate from '../BalanceContainer/SliderDate/SliderDate';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { userGet } from 'redux/user/user-operations';
+import { userBalancePatch } from 'redux/balance/balance-operations';
+import { useState } from 'react';
 
 export const BalanceLap = () => {
   const dispatch = useDispatch();
   const { pathname: location } = useLocation();
   const renderBalance = useSelector(state => state.balance);
+  const monthBalance = useSelector(state => state.expense.expenses);
+
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  console.log(isTablet);
+
+  const [input, setInput] = useState('');
+  const handleOnChangeInput = e => {
+    setInput(e.target.value);
+  };
+  const [firstRender, setFirstRender] = useState(true);
+  const handleInputBalance = () => {
+    setFirstRender(false);
+  };
+  const handleSubmitBalance = e => {
+    e.preventDefault();
+    dispatch(userBalancePatch({ newBalance: input }));
+    setInput('');
+  };
 
   useEffect(() => {
     dispatch(userGet());
   }, [dispatch]);
-
   return (
     <div className={s.section}>
       {isTablet ? (
@@ -48,14 +64,17 @@ export const BalanceLap = () => {
         </div>
       )}
 
-      <form className={s.form}>
+      <form className={s.form} onSubmit={handleSubmitBalance}>
         {isMobile && <p>Balance:</p>}
         <div>
           <label>
             {!isMobile && 'Balance:'}
             <input
               name="balance"
-              placeholder={`${renderBalance.toFixed(2)} UAH`}
+              value={input}
+              placeholder={`${Number(renderBalance).toFixed(2)} UAH`}
+              onChange={handleOnChangeInput}
+              onClick={handleInputBalance}
             />
           </label>
           {isTablet ? (
@@ -67,22 +86,6 @@ export const BalanceLap = () => {
       </form>
       <div>
         {location === '/report' ? (
-          // <div className={s.btnTitle}>
-          //   <p>Current period:</p>
-          //   <div className={s.btn}>
-          //     <button>
-          //       <svg width={10} height={10}>
-          //         <use href={`${svg}#icon-btn-left`}></use>
-          //       </svg>
-          //     </button>
-          //     <p className={s.btnName}>November 2019</p>
-          //     <button>
-          //       <svg width={10} height={10}>
-          //         <use href={`${svg}#icon-btn-right`}></use>
-          //       </svg>
-          //     </button>
-          //   </div>
-          // </div>
           <SliderDate />
         ) : (
           <div className={s.report}>
@@ -95,6 +98,17 @@ export const BalanceLap = () => {
           </div>
         )}
       </div>
+      {location !== '/report' &&
+        firstRender &&
+        !monthBalance.length &&
+        !renderBalance && (
+          <div className={s.message} onClick={handleInputBalance}>
+            <p>
+              Hello! To get started, enter the current balance of your account!
+            </p>
+            <p>You can't spend money until you have it :)</p>
+          </div>
+        )}
     </div>
   );
 };
