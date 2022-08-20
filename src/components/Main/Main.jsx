@@ -15,8 +15,6 @@ export const Main = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [sum, setSum] = useState('');
-  const dateNow = new Date();
-  const [datePicker, setDatePicker] = useState(dateNow.toISOString());
   const [list, setList] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [emptyInput, setEmptyInput] = useState(false);
@@ -107,7 +105,7 @@ export const Main = () => {
     const items = {
       description: description,
       amount: Number(sum),
-      date: datePicker.slice(0, 10),
+      date: startDate.toISOString().slice(0, 10),
       category: category,
     };
 
@@ -129,10 +127,6 @@ export const Main = () => {
     if (evt.target === evt.currentTarget) {
       setList(!list);
     }
-  };
-
-  const setDate = date => {
-    setDatePicker(date.toISOString());
   };
 
   return (
@@ -163,11 +157,7 @@ export const Main = () => {
           <>
             <div className={s.formContainer}>
               <div className={s.calendar}>
-                <Calendar
-                  setDate={setDate}
-                  startDate={startDate}
-                  setStartDate={setStartDate}
-                />
+                <Calendar startDate={startDate} setStartDate={setStartDate} />
               </div>
               <form className={s.form} onSubmit={handleSubmitForm}>
                 <input
