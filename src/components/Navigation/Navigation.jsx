@@ -3,20 +3,33 @@ import Sprite from '../../images/sprite.svg';
 import UserMenu from 'components/UserMenu/UserMenu';
 import { getIsLoggedIn } from 'redux/auth/auth-selector';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { logOut } from 'redux/auth/auth-operations';
+import { useSelector } from 'react-redux';
+import Modal from 'components/Modal/Modal';
+import { useState } from 'react';
 
 const Navigation = () => {
   const isLogin = useSelector(getIsLoggedIn);
-  const dispatch = useDispatch();
+
+  const [modalActive, setOnSubmitButton] = useState(false);
+
+  const modalChange = () => {
+    setOnSubmitButton(!modalActive);
+  };
+
+  const handelOpenModal = () => {
+    modalChange();
+  };
 
   return (
     <header className={styles.header}>
+      {modalActive && (
+        <Modal title="Do you really want to leave?" modalChange={modalChange} />
+      )}
       <div className={styles.headerContainer}>
         <button
           className={styles.headerButton}
           type="button"
-          onClick={() => dispatch(logOut())}
+          onClick={handelOpenModal}
         >
           <svg className={styles.logoIcon} width={90} height={31}>
             <use href={`${Sprite}#icon-logo`}></use>
