@@ -1,0 +1,219 @@
+@media screen and (min-width: 1280px) {
+  .kapusta li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 84px;
+    height: 88px;
+    animation: animate 18s linear infinite;
+    right: -84px;
+    background-color: #f2f5fc;
+    border-radius: 50%;
+  }
+
+  .cabbage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  .kapusta li:nth-child(1) {
+    z-index: 1;
+    top: 20%;
+    animation-delay: 3s;
+    animation-duration: 14s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(2) {
+    top: 25%;
+    animation-delay: 6s;
+    animation-duration: 20s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(3) {
+    top: 90%;
+    animation-delay: 9s;
+    animation-duration: 24s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(4) {
+    top: 70%;
+    animation-delay: 12s;
+    animation-duration: 26s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(5) {
+    top: 35%;
+    animation-delay: 15s;
+    animation-duration: 30s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(6) {
+    top: 60%;
+    animation-delay: 18s;
+    animation-duration: 34s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(7) {
+    top: 30%;
+    animation-delay: 21s;
+    animation-duration: 38s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(8) {
+    top: 50%;
+    animation-delay: 24s;
+    animation-duration: 42s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(9) {
+    top: 80%;
+    animation-delay: 27s;
+    animation-duration: 46s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(10) {
+    top: 40%;
+    animation-delay: 30s;
+    animation-duration: 50s;
+    animation-direction: reverse;
+  }
+
+  .kapusta li:nth-child(11) {
+    top: 20%;
+    animation-direction: reverse;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+
+    100% {
+      transform: translateX(-120vw) rotate(720deg);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .kapusta {
+    display: none;
+  }
+  .cabbagebackground {
+    width: 1280px;
+    height: 232px;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../../images/cabagge/kapusta_main.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .kapusta li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 84px;
+    height: 88px;
+    animation: animate 18s linear infinite;
+    right: -84px;
+    background-color: #f2f5fc;
+    border-radius: 50%;
+    animation-direction: reverse;
+  }
+
+  .cabbage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  .kapusta li:nth-child(1) {
+    z-index: 1;
+    top: 20%;
+    animation-delay: 3s;
+    animation-duration: 14s;
+  }
+
+  .kapusta li:nth-child(2) {
+    top: 25%;
+    animation-delay: 6s;
+    animation-duration: 20s;
+  }
+
+  .kapusta li:nth-child(3) {
+    top: 90%;
+    animation-delay: 9s;
+    animation-duration: 24s;
+  }
+
+  .kapusta li:nth-child(4) {
+    top: 70%;
+    animation-delay: 12s;
+    animation-duration: 28s;
+  }
+
+  .kapusta li:nth-child(5) {
+    top: 35%;
+    animation-delay: 15s;
+    animation-duration: 32s;
+  }
+
+  .kapusta li:nth-child(6) {
+    top: 60%;
+    animation-delay: 18s;
+    animation-duration: 36s;
+  }
+
+  .kapusta li:nth-child(7) {
+    top: 30%;
+    animation-delay: 21s;
+    animation-duration: 40s;
+  }
+
+  .kapusta li:nth-child(8) {
+    top: 50%;
+    animation-delay: 24s;
+    animation-duration: 44s;
+  }
+
+  .kapusta li:nth-child(9) {
+    top: 80%;
+    animation-delay: 27s;
+    animation-duration: 48s;
+  }
+
+  .kapusta li:nth-child(10) {
+    top: 40%;
+    animation-delay: 30s;
+    animation-duration: 52s;
+  }
+
+  .kapusta li:nth-child(11) {
+    top: 20%;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+
+    100% {
+      transform: translateX(-120vw) rotate(720deg);
+    }
+  }
+}

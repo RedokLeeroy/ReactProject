@@ -1,0 +1,232 @@
+.box {
+  margin: 0 auto;
+  background-color: #fff;
+  max-width: 420px;
+  padding: 40px 20px;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 400px) {
+  .box {
+    padding: 40px 60px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .box {
+    max-width: 426px;
+    width: 426px;
+    padding: 56px 83px;
+    margin: 150px 171px 0 171px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .box {
+    max-width: 426px;
+    width: 426px;
+    padding: 56px 83px;
+    margin: 0 171px 0 171px;
+  }
+}
+
+.googleText {
+  width: 200px;
+  margin: 0 auto 16px;
+
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: #969698;
+}
+
+@media screen and (min-width: 768px) {
+  .googleText {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.googleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  margin: 0 auto 32px;
+  background: #f5f6fb;
+  border: none;
+  border-radius: 26px;
+  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+
+  color: #000;
+}
+.googleButton:hover {
+  background-color: #e4e5ec;
+}
+
+.googleSvg {
+  margin-right: 10px;
+}
+
+.authText {
+  margin-bottom: 16px;
+
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+
+  color: #969698;
+}
+
+@media screen and (min-width: 768px) {
+  .authText {
+    margin-bottom: 20px;
+  }
+}
+
+.label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.04em;
+
+  color: #000000;
+}
+
+.labelStar {
+  color: #eb5757;
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    margin-bottom: 32px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.input {
+  margin-top: 12px;
+  padding: 20px;
+  background: #f6f7fb;
+  border: none;
+  border-radius: 30px;
+  height: 52px;
+
+
+  font-size: 18px;
+  color: #2e2f30;
+}
+
+.input::placeholder {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+
+  color: #a6abb9;
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  bottom: -16px;
+
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.04em;
+
+  color: #eb5757;
+}
+
+.authButtonBox {
+  max-width: 260px;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px auto 0;
+}
+ @media screen and (min-width: 768px) {
+    .btn {
+        width: 122px;
+    }
+} 
+
+.loginBtn {
+        width: 116px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 16px;
+            filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+            cursor: pointer;
+        
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: center;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+    background-image: linear-gradient(50deg,
+            #fad1b7 0%,
+            #fd721b 50%,
+            #fb6102 100%);
+    background-position: 100% 0;
+    background-size: 200% 200%;
+    transition: 500ms;
+
+  color: #252525;
+}
+
+.loginBtn:hover {
+  background-position: 0 0;
+}
+
+.registrationButton {
+width: 116px;
+height: 44px;
+display: flex;
+align-items: center;
+justify-content: center;
+border: none;
+border-radius: 16px;
+filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+ cursor: pointer;      
+font-weight: 700;
+font-size: 12px;
+line-height: 14px;
+text-align: center;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+    background-image: linear-gradient(50deg,
+            #fefefe 0%,
+            #e5e6e9 50%,
+            #e6e9fb 100%);
+    background-position: 100% 0;
+    background-size: 200% 200%;
+    transition: 500ms;
+
+
+  color: #000000;
+}
+
+.registrationButton:hover {
+  background-position: 0 0;
+}

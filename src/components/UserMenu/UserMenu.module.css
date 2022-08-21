@@ -1,0 +1,122 @@
+.userAvatar {
+  display: inline-block;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.userMenu {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.userName {
+  margin-left: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #52555f;
+}
+
+.userButton {
+  text-align: center;
+  color: #52555f;
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  align-items: center;
+  line-height: 1.16;
+  display: inline-block;
+  text-decoration-line: underline;
+  transition: all 0.3s;
+  cursor: pointer;
+  min-width: 44px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.userButton:hover,
+.userButton:focus {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: #ff751d;
+  color: #fff;
+  transition: all 0.2s ease-out;
+}
+
+.avatarName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f5f6fa;
+  width: 32px;
+  height: 32px;
+}
+
+.userImg {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.userLine {
+  border-right: 1px solid #e0e5eb;
+  padding-right: 20px;
+  height: 36px;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .logoutIcon {
+    display: none;
+  }
+
+  .iconButton {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logoutIcon {
+    display: none;
+  }
+
+  .iconButton {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .userName {
+    display: none;
+  }
+
+  .userButton {
+    display: none;
+  }
+
+  .logoutIcon {
+    transition: all 0.3s;
+    fill: #cbccd0;
+  }
+
+  .iconButton {
+    margin-left: 16px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .logoutIcon:hover,
+  .logoutIcon:focus {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: #ff751d;
+    fill: #fff;
+    transition: all 0.2s ease-out;
+  }
+}

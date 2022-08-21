@@ -1,0 +1,28 @@
+/* /////REPORTS */
+.containerReports {
+  position: absolute;
+  width: 84px;
+  height: 24px;
+  left: 1105px;
+  top: 106px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.textReports {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+  margin-right: 3px;
+  text-align: right;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  
+
+  color: rgba(82, 85, 95, 0.7);
+}

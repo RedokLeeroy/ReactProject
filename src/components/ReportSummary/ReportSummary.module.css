@@ -1,0 +1,96 @@
+.section {
+  min-width: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 32px;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 25px;
+  background-color: #fff;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+}
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summaryExp {
+  composes: summary;
+}
+.line {
+  display: flex;
+  align-items: center;
+}
+.line::after {
+  content: '';
+  width: 1px;
+  height: 70px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: #e0e5eb;
+}
+
+.summaryInc {
+  composes: summary;
+}
+.sumName {
+  margin: 0 0 8px 0;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+
+  color: #52555f;
+}
+
+.sum {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+}
+
+.sumRed {
+  composes: sum;
+  color: #e53935;
+}
+
+.sumGreen {
+  composes: sum;
+  color: #407946;
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    max-width: 1034px;
+  }
+  .summary {
+    flex-direction: row;
+  }
+
+  .line::after {
+    height: 36px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .sumName {
+    margin: 0 15px 0px 0;
+  }
+
+  .sum {
+  }
+}

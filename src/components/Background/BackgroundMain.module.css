@@ -1,0 +1,34 @@
+
+.backgroundMain {
+  height: calc(100vh - 56px);
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+  background-image: url(../../images/cabagge/rectangle.png);
+  background-position: left top;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px){
+.backgroundMain{
+  height: calc(100vh - 56px);
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: white;
+  background-image: url(../../images/cabagge/rectangle.png), url(../../images/cabagge/kapusta_small.png);
+  background-position: left top, right 88px bottom 68px;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100vw 583px, auto;
+}
+}
+
+@media screen and (min-width: 1280px){
+.backgroundMain{
+  height: calc(100vh - 56px);
+  background-image: url(../../images/cabagge/rectangle.png), url(../../images/cabagge/kapusta_main.png), url(../../images/cabagge/kapusta_small.png);
+  background-position: left top, left 1000px top, left bottom;
+  background-repeat: repeat-x, no-repeat, repeat-x;
+  background-size: auto, auto, auto;
+}
+}
+  

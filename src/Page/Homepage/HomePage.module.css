@@ -1,0 +1,141 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.name {
+  margin-top: 86px;
+}
+
+/* @media screen and (min-width: 320px) { */
+.authorization {
+  margin-top: 199px;
+}
+/* } */
+
+.subtitle {
+  font-weight: 700;
+  color: #2e2f30;
+}
+
+.background {
+  overflow: hidden;
+  border-bottom-left-radius: 200px;
+  background-color: #f2f5fc;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 582px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 767px) {
+  .background {
+    border-bottom-left-radius: 100px;
+  }
+}
+.cabbagefly {
+  position: absolute;
+  bottom: 0;
+  top: 740px;
+  z-index: -1;
+}
+@media screen and (max-width: 767px) {
+  .background {
+    height: 342px;
+  }
+  .title {
+    width: 183px;
+    height: 63px;
+    position: absolute;
+    top: 56px;
+    margin-top: 86px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../../images/cabagge/title.png);
+  }
+}
+
+.animation {
+  position: relative;
+  left: 20px;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  width: 184px;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    margin-top: 80px;
+    margin-left: 170px;
+    margin-right: auto;
+    width: 306px;
+    height: 101px;
+    position: absolute;
+    top: 56px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../../images/cabagge/title.png);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .subtitle {
+    font-size: 13px;
+    line-height: 1.153;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding-left: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .authorization {
+    margin-top: 80px;
+  }
+
+  .cabbagefly {
+    top: 738px;
+    left: 100px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .name {
+    padding-right: 157px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.1875;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding-left: 53px;
+  }
+
+  .title {
+    width: 377px;
+    height: 139px;
+    position: absolute;
+    top: 308px;
+    right: 60%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../../images/cabagge/title.png);
+  }
+
+  .cabbagefly {
+    top: 740px;
+    left: 230px;
+  }
+}

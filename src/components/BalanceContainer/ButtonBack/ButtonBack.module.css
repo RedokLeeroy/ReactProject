@@ -1,0 +1,54 @@
+/* BUTTON_BACK */
+
+.btnBack {
+  /* position: absolute; */
+  margin-right: 470px;
+  width: 100px;
+  height: 24px;
+  background: #f2f5fc;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .btnBack {
+    composes: btnBack;
+    /* position: absolute; */
+    top: 50px;
+    margin-right: 132px;
+
+
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .btnBack {
+    composes: btnBack;
+    position: absolute;
+    top: 50px;
+    left:14px
+
+
+  }
+}
+
+.text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  letter-spacing: 0.04em;
+
+  color: rgba(82, 85, 95, 0.7);
+  text-decoration: none;
+}
+@media screen and (max-width: 767px) {
+  .text {
+   opacity:0;
+  }
+}

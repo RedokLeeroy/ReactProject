@@ -1,0 +1,16 @@
+.bar {
+  max-width: 1034px;
+  height: 433px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 70px;
+  background: #ffffff;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+}
+
+.barMobile {
+  width: 90%;
+  margin: auto;
+}

@@ -1,0 +1,36 @@
+.bg {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: calc(100vh - 56px);
+  background-color: white;
+  background-image: url(../../svgReport/bg-img-mb.png);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: auto 440px;
+}
+
+@media screen and (min-width: 768px) {
+  .bg {
+    padding-left: 32px;
+    padding-right: 32px;
+
+    height: calc(100vh - 56px);
+    background-color: white;
+    background-image: url(../../svgReport/bg-img.png),
+      url(../../svgReport/kapusta-tablet.png);
+    background-position: left top, right 88px bottom 60px;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100vw 583px, auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .bg {
+    height: calc(100vh - 56px);
+    background-color: white;
+    background-image: url(../../svgReport/bg-img.png),
+      url(../../svgReport/bg-img-2.png), url(../../svgReport/kapusta.png);
+    background-position: left top, left 1000px top, left bottom;
+    background-repeat: repeat-x, no-repeat, repeat-x;
+    background-size: auto, auto, auto;
+  }
+}

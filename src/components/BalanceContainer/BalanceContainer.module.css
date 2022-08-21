@@ -1,0 +1,25 @@
+.baseContainer{
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.container{
+composes:baseContainer;
+  justify-content: flex-end;
+  /* justify-content: space-around; */
+}
+@media screen and (max-width: 767px) {
+  .container {
+    composes:baseContainer;
+    flex-direction: column-reverse;
+    
+  }
+}
+
+    
+.containerWithBtnBack{
+  composes:baseContainer;
+  justify-content: flex-end;
+}
+
