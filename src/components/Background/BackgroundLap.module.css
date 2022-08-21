@@ -6,6 +6,7 @@
   background-image: url(../../svgReport/bg-img-mb.png);
   background-position: left top;
   background-repeat: no-repeat;
+  background-size: auto 440px;
 }
 
 @media screen and (min-width: 768px) {
