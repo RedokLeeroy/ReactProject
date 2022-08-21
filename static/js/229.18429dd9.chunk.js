@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[229],{6229:function(e,t,a){a(2791);t.Z=a.p+"static/media/svg-report.acbcb78fa4a47670c8ff55b651285ec3.svg"}}]);
+//# sourceMappingURL=229.18429dd9.chunk.js.map
