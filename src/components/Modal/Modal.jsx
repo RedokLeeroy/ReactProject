@@ -3,7 +3,6 @@ import css from './Modal.module.css';
 import sprite from '../../images/sprite.svg';
 
 export default function Modal({ title, onSubmitButton, onRejectButton }) {
-
   return createPortal(
     <div className={css.backdrop}>
       <div className={css.modal}>
