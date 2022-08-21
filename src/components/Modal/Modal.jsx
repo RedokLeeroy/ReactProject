@@ -5,13 +5,13 @@ import { useEffect } from 'react';
 import { logOut } from 'redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 
-export default function Modal({ title, modalChange, hendelOpenModal }) {
+export default function Modal({ title, modalChange }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener('keydown', event => {
       if (event.code === 'Escape') {
-        modalChange();
+        modalChange(false);
       }
     });
 
@@ -20,21 +20,21 @@ export default function Modal({ title, modalChange, hendelOpenModal }) {
 
   const handleOverlay = event => {
     if (event.currentTarget === event.target) {
-      modalChange();
+      modalChange(false);
     }
   };
 
   const onSubmitButton = () => {
     if (title === 'Are you sure?') {
-      // hendelOpenModal();
-      modalChange();
-      return;
+      modalChange(true);
+      return true;
     }
     dispatch(logOut());
-    modalChange();
+    modalChange(true);
+    return false;
   };
   const onRejectButton = () => {
-    modalChange();
+    modalChange(false);
   };
 
   return createPortal(

@@ -9,41 +9,33 @@ import { useState } from 'react';
 
 export const TransactionTable = ({ tablePage, transactionData }) => {
   const dispatch = useDispatch();
+  const [trID, setTrID] = useState('');
+  const [modalActive, setOnSubmitButton] = useState(false);
 
-  const hendelDelete = id => {
+  const hendelDelete = () => {
     if (tablePage === '/expenses') {
-      dispatch(expenseDelete(id));
+      dispatch(expenseDelete(trID));
     }
     if (tablePage === '/income') {
-      dispatch(incomeDelete(id));
+      dispatch(incomeDelete(trID));
     }
   };
 
-  const [modalActive, setOnSubmitButton] = useState(false);
-
-  const modalChange = () => {
+  const modalChange = state => {
     setOnSubmitButton(!modalActive);
+    if (state) {
+      hendelDelete();
+    }
   };
 
   const hendelOpenModal = id => {
-    console.log(id);
-    if (!modalActive) {
-      modalChange();
-      return;
-    } else {
-      hendelDelete(id);
-    }
+    setTrID(id);
+    modalChange();
   };
-
-  // const handelAtion = () => {
-
-  // }
 
   return (
     <ul className={s.Table}>
-      {modalActive && (
-        <Modal title="Are you sure?" modalChange={modalChange} handelAtion />
-      )}
+      {modalActive && <Modal title="Are you sure?" modalChange={modalChange} />}
       <li>
         <ul className={s.Thead}>
           <li className={s.Date}>Date</li>
