@@ -75,12 +75,26 @@ export const BalanceLap = () => {
               placeholder={`${Number(renderBalance).toFixed(2)} UAH`}
               onChange={handleOnChangeInput}
               onClick={handleInputBalance}
+              disabled={
+                location !== '/report' && !monthBalance.length && !renderBalance
+                  ? false
+                  : true
+              }
             />
           </label>
           {isTablet ? (
             location !== '/report' && <button>confirm</button>
           ) : (
-            <button>confirm</button>
+            <button
+              type="submit"
+              disabled={
+                location !== '/report' && !monthBalance.length && !renderBalance
+                  ? false
+                  : true
+              }
+            >
+              confirm
+            </button>
           )}
         </div>
       </form>
