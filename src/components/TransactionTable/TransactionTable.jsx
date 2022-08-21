@@ -4,21 +4,38 @@ import s from './TransactionTable.module.css';
 import { expenseDelete } from 'redux/expense/expense-operations';
 import { incomeDelete } from 'redux/income/income-operations';
 import { PropTypes } from 'prop-types';
+import Modal from 'components/Modal/Modal';
+import { useState } from 'react';
 
 export const TransactionTable = ({ tablePage, transactionData }) => {
   const dispatch = useDispatch();
+  const [trID, setTrID] = useState('');
+  const [modalActive, setOnSubmitButton] = useState(false);
 
-  const hendelDelete = id => {
+  const hendelDelete = () => {
     if (tablePage === '/expenses') {
-      dispatch(expenseDelete(id));
+      dispatch(expenseDelete(trID));
     }
     if (tablePage === '/income') {
-      dispatch(incomeDelete(id));
+      dispatch(incomeDelete(trID));
     }
+  };
+
+  const modalChange = state => {
+    setOnSubmitButton(!modalActive);
+    if (state) {
+      hendelDelete();
+    }
+  };
+
+  const hendelOpenModal = id => {
+    setTrID(id);
+    modalChange();
   };
 
   return (
     <ul className={s.Table}>
+      {modalActive && <Modal title="Are you sure?" modalChange={modalChange} />}
       <li>
         <ul className={s.Thead}>
           <li className={s.Date}>Date</li>
@@ -35,7 +52,7 @@ export const TransactionTable = ({ tablePage, transactionData }) => {
               key={elem._id}
               transactionData={elem}
               tablePage={tablePage}
-              hendelDelete={hendelDelete}
+              hendelDelete={hendelOpenModal}
             />
           );
         })}
