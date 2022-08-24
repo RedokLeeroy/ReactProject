@@ -20,24 +20,39 @@ const Navigation = () => {
     modalChange();
   };
 
-  return (
-    <header className={styles.header}>
-      {modalActive && (
-        <Modal title="Do you really want to leave?" modalChange={modalChange} />
-      )}
-      <div className={styles.headerContainer}>
-        <button
-          className={styles.headerButton}
-          type="button"
-          onClick={handelOpenModal}
-        >
+  if (isLogin) {
+    return (
+      <header className={styles.header}>
+        <div className={styles.headerContainer}>
+          {modalActive && (
+            <Modal
+              title="Do you really want to leave?"
+              modalChange={modalChange}
+            />
+          )}
+          <button
+            className={styles.headerButton}
+            type="button"
+            onClick={handelOpenModal}
+          >
+            <svg className={styles.logoIcon} width={90} height={31}>
+              <use href={`${Sprite}#icon-logo`}></use>
+            </svg>
+          </button>
+          {isLogin && <UserMenu />}
+        </div>
+      </header>
+    );
+  } else {
+    return (
+      <header className={styles.header}>
+        <div className={styles.headerContainer}>
           <svg className={styles.logoIcon} width={90} height={31}>
             <use href={`${Sprite}#icon-logo`}></use>
           </svg>
-        </button>
-        {isLogin && <UserMenu />}
-      </div>
-    </header>
-  );
+        </div>
+      </header>
+    );
+  }
 };
 export default Navigation;
